@@ -1,0 +1,81 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.1.0
+
+    working_directory: ~/ccpv
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run test
+
+      - persist_to_workspace:
+          root: ~/
+          paths: ./*
+
+  build:
+    docker:
+      - image: circleci/node:10.1.0
+
+    working_directory: ~/ccpv
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run: npm run build
+
+      - persist_to_workspace:
+          root: ~/
+          paths: ./*
+
+  deploy:
+    docker:
+      - image: circleci/node:10.1.0
+
+    working_directory: ~/ccpv
+
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run: git config --global user.name $GH_NAME
+      - run: git config --global user.email $GH_EMAIL
+      - run: npm run deploy
+
+workflows:
+  version: 2
+
+  test-build-and-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore: gh-pages
+
+      - build:
+          requires:
+            - test
+
+          filters:
+            branches:
+              only: master
+
+      - deploy:
+          requires:
+            - build
