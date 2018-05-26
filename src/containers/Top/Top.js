@@ -11,9 +11,7 @@ export class Top extends Component {
           <Logo />
           <h1 className="Top-title">Welcome to React</h1>
         </header>
-        <p className="Top-intro">
-          Hello World !
-        </p>
+        <p className="Top-intro">Hello World !</p>
       </div>
     )
   }
