@@ -1,17 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
 
-import { Top } from 'containers'
+import Routes from './routes'
 
+// Static Files
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 
-import store from './modules/store'
+// Redux and Router
+import store, { history } from './modules'
 
 ReactDOM.render(
   <Provider store={store}>
-    <Top />
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 )
