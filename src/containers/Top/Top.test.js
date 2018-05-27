@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Top } from './Top'
+import { Top } from '../'
 
-import store from 'modules/store'
+import store from 'modules'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
