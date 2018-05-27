@@ -12,7 +12,7 @@ const reducers = {
   ToDo: ToDo.store
 }
 
-export default createStore(
+export const store = createStore(
   combineReducers({
     ...reducers,
     router: routerReducer

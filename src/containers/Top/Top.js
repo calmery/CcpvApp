@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 
 import { Logo } from 'components'
 import './Top.css'
@@ -13,9 +14,11 @@ export class Top extends Component {
           <h1 className="Top-title">Welcome to React</h1>
         </header>
         <p className="Top-intro">Hello World !</p>
-        <Button variant="raised" color="primary">
-          Hello World
-        </Button>
+        <Link to="/todo" style={{ textDecoration: 'none' }}>
+          <Button variant="raised" color="primary">
+            ToDo
+          </Button>
+        </Link>
       </div>
     )
   }
