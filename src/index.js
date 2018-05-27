@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import { Route } from 'react-router'
 
 // Redux and Router
-import store, { history } from './modules'
+import { store, history } from './modules'
 
 // Static Files
 import './index.css'

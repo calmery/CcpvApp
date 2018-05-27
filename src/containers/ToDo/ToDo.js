@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { addText, clearText } from 'modules/ToDo/actions'
+import { Link } from 'react-router-dom'
 
 export class ToDo extends Component {
   render() {
@@ -14,6 +15,7 @@ export class ToDo extends Component {
             <li key={obj.id}>{obj.text}</li>
           ))}
         </ul>
+        <Link to="/">Top</Link>
       </div>
     )
   }
