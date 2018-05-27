@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { connectStore } from 'modules/store'
 import { addText, clearText } from 'modules/ToDo/actions'
 
-class ToDoComponent extends Component {
+export class ToDo extends Component {
   render() {
     return (
       <div>
         <input type="text" ref="input" />
+        <br />
         <button onClick={e => this.onAddBtnClicked(e)}>Add</button>
         <button onClick={e => this.onClearBtnClicked(e)}>Clear</button>
         <ul>
@@ -30,5 +30,3 @@ class ToDoComponent extends Component {
     this.props.dispatch(clearText())
   }
 }
-
-export const ToDo = connectStore(ToDoComponent)
