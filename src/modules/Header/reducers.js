@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { OPEN_HEADER, CLOSE_HEADER } from './constants'
 
-const opened = (state = false, action) => {
+const isOpen = (state = false, action) => {
   switch (action.type) {
     case OPEN_HEADER:
       return true
@@ -14,6 +14,6 @@ const opened = (state = false, action) => {
 
 export default {
   store: combineReducers({
-    opened
+    isOpen
   })
 }
