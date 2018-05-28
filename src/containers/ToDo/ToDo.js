@@ -49,6 +49,14 @@ export class ToDo extends Component {
             </ListItem>
           ))}
         </List>
+        <Button
+          variant="raised"
+          color="primary"
+          fullWidth
+          onClick={e => this.onClearBtnClicked(e)}
+        >
+          Clear
+        </Button>
       </div>
     )
   }
