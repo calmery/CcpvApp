@@ -1,4 +1,5 @@
-data = [ { created_at: 'Fri May 25 19:57:01 +0000 2018',
+export default
+[ { created_at: 'Fri May 25 19:57:01 +0000 2018',
     id: 1111111111111111111,
     id_str: '1111111111111111111',
     text: 'Do you have a favorite Node.js YouTube tutorial series? If so, what is it and what do you like about it?',
