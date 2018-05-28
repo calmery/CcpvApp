@@ -12,13 +12,26 @@ import { SideMenu } from 'components'
 export class Header extends Component {
   render() {
     return (
-      <div>
+      <div style={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton color="inherit" aria-label="Menu">
+            <IconButton
+              color="inherit"
+              aria-label="Menu"
+              style={{
+                marginLeft: -12,
+                marginRight: 20
+              }}
+            >
               <MenuIcon onClick={() => this.open()} />
             </IconButton>
-            <Typography variant="title" color="inherit">
+            <Typography
+              variant="title"
+              color="inherit"
+              style={{
+                flex: 1
+              }}
+            >
               CCPV
             </Typography>
           </Toolbar>
