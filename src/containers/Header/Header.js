@@ -32,7 +32,7 @@ export class Header extends Component {
                 flex: 1
               }}
             >
-              CCPV
+              {this.props.state.title}
             </Typography>
           </Toolbar>
         </AppBar>
