@@ -19,11 +19,6 @@ export class Top extends Component {
             ToDo
           </Button>
         </Link>
-        <Link to="/setting" style={{ textDecoration: 'none' }}>
-          <Button variant="raised" color="primary">
-            Setting
-          </Button>
-        </Link>
       </div>
     )
   }
