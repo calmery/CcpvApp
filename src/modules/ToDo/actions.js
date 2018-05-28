@@ -1,6 +1,13 @@
-import { ADD_TEXT, CLEAR_TEXT } from './constants'
+import { ADD_TEXT, CLEAR_TEXT, TEXT_ONCHANGE } from './constants'
 
 let textId = 1
+
+export const onTextChange = text => {
+  return {
+    type: TEXT_ONCHANGE,
+    text
+  }
+}
 
 export const addText = newText => {
   return {
