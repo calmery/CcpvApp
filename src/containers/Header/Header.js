@@ -23,7 +23,7 @@ export class Header extends Component {
               <MenuIcon onClick={() => this.open()} />
             </IconButton>
             <Typography variant="title" color="inherit">
-              CCPV
+              Search
             </Typography>
           </Toolbar>
         </AppBar>
