@@ -28,7 +28,7 @@ export class Header extends Component {
           </Toolbar>
         </AppBar>
         <Drawer
-          open={this.props.state.Header.opened}
+          open={this.props.state.Header.isOpen}
           onClose={() => this.close()}
         >
           <div role="button" onClick={() => this.close()}>
