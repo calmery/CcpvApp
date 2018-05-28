@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createHistory from 'history/createBrowserHistory'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 
+import title from './Title/reducers'
+
 import ToDo from './ToDo/reducers'
 import Header from './Header/reducers'
 
@@ -17,7 +19,8 @@ const reducers = {
 export const store = createStore(
   combineReducers({
     ...reducers,
-    router: routerReducer
+    title,
+    router: routerReducer,
   }),
   applyMiddleware(middleware)
 )

@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 import { addText, clearText } from 'modules/ToDo/actions'
 import { Link } from 'react-router-dom'
 
+import { setTitle } from 'modules/Title/actions'
+
 export class ToDo extends Component {
+  componentDidMount() {
+    this.props.dispatch(setTitle('ToDo'))
+  }
+
   render() {
     return (
       <div>
