@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-
+import { open, close } from 'modules/Header/actions'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import Drawer from '@material-ui/core/Drawer'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 
-import { open, close } from 'modules/Header/actions'
+import { SideMenu } from 'components'
 
 export class Header extends Component {
   render() {
@@ -27,25 +23,14 @@ export class Header extends Component {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Drawer
+        <SwipeableDrawer
           open={this.props.state.Header.isOpen}
           onClose={() => this.close()}
+          onOpen={() => this.open()}
+          onClick={() => this.close()}
         >
-          <div role="button" onClick={() => this.close()}>
-            <List>
-              <Link to="/" style={{ textDecoration: 'none' }}>
-                <ListItem>
-                  <ListItemText primary="Top" />
-                </ListItem>
-              </Link>
-              <Link to="/todo" style={{ textDecoration: 'none' }}>
-                <ListItem>
-                  <ListItemText primary="ToDo" />
-                </ListItem>
-              </Link>
-            </List>
-          </div>
-        </Drawer>
+          <SideMenu />
+        </SwipeableDrawer>
       </div>
     )
   }
