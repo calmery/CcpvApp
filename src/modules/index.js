@@ -12,15 +12,15 @@ const middleware = routerMiddleware(history)
 
 // Reducers
 const reducers = {
-  ToDo: ToDo.store,
-  Header: Header.store
+  ToDo,
+  Header
 }
 
 export const store = createStore(
   combineReducers({
     ...reducers,
     title,
-    router: routerReducer,
+    router: routerReducer
   }),
   applyMiddleware(middleware)
 )
