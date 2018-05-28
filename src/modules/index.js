@@ -10,17 +10,12 @@ import Header from './Header/reducers'
 export const history = createHistory()
 const middleware = routerMiddleware(history)
 
-// Reducers
-const reducers = {
-  ToDo: ToDo.store,
-  Header: Header.store
-}
-
 export const store = createStore(
   combineReducers({
-    ...reducers,
+    Header,
+    ToDo,
     title,
-    router: routerReducer,
+    router: routerReducer
   }),
   applyMiddleware(middleware)
 )

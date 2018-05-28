@@ -1,6 +1,6 @@
 import { SET_TITLE } from './constants'
 
-const title = (state = document.title, action) => {
+export default (state = document.title, action) => {
   let title
 
   switch (action.type) {
@@ -16,5 +16,3 @@ const title = (state = document.title, action) => {
 
   return title
 }
-
-export default title
