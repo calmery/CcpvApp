@@ -4,6 +4,7 @@ import { Header as HeaderComponent } from './Header/Header'
 import { Top as TopComponent } from './Top/Top'
 import { ToDo as ToDoComponent } from './ToDo/ToDo'
 import { Edit as EditComponent } from './Edit/Edit'
+import { Setting as SettingComponent } from './Setting/Setting'
 
 const connectStore = target => {
   return connect(state => {
@@ -15,3 +16,4 @@ export const Header = connectStore(HeaderComponent)
 export const Top = connectStore(TopComponent)
 export const ToDo = connectStore(ToDoComponent)
 export const Edit = connectStore(EditComponent)
+export const Setting = connectStore(SettingComponent)
