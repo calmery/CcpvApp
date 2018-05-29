@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import HomeIcon from '@material-ui/icons/Home'
 import EditIcon from '@material-ui/icons/Edit'
+import SettingsIcon from '@material-ui/icons/Settings'
 
 export class SideMenu extends Component {
   render() {
@@ -32,6 +33,15 @@ export class SideMenu extends Component {
                 <EditIcon />
               </ListItemIcon>
               <ListItemText primary="ToDo" />
+            </ListItem>
+          </Link>
+          <Divider />
+          <Link to="/setting" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon>
+                <SettingsIcon />
+              </ListItemIcon>
+              <ListItemText primary="Setting" />
             </ListItem>
           </Link>
         </List>
