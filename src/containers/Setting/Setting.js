@@ -8,8 +8,6 @@ export class Setting extends Component {
   }
 
   render() {
-    return (
-      <div>Setting</div>
-    )
+    return <div>Setting</div>
   }
 }
