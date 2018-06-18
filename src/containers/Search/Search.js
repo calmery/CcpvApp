@@ -11,18 +11,21 @@ export class Search extends Component {
   }
 
   render() {
+    let array = []
+    for (let i = 0; i < 100; i++) {
+      array[i] = i
+    }
     return (
       <div className="Search">
         <Button variant="raised" color="primary">
           Primary
         </Button>
         <List>
-          <ListItem button>
-            <ListItemText primary="Inbox" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Drafts" />
-          </ListItem>
+          {array.map(n => (
+            <ListItem button>
+              <ListItemText primary={n} />
+            </ListItem>
+          ))}
         </List>
       </div>
     )
