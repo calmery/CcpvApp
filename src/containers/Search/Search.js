@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Button from '@material-ui/core/Button'
 import { setTitle } from 'modules/Title/actions'
 
 export class Search extends Component {
@@ -8,6 +8,12 @@ export class Search extends Component {
   }
 
   render() {
-    return <div className="Search">Hello</div>
+    return (
+      <div className="Search">
+      <Button variant="raised" color="primary">
+          Primary
+        </Button>
+        </div>
+    )
   }
 }
