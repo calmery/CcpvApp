@@ -13,8 +13,13 @@ export class Header extends Component {
     super(props)
 
     this.state = {
-      isOpen: false
+      isOpen: false,
+      title: 'Untitled'
     }
+  }
+
+  updateTitle(title) {
+    this.setState({ title })
   }
 
   render() {
@@ -39,7 +44,7 @@ export class Header extends Component {
                 flex: 1
               }}
             >
-              Title
+              {this.state.title}
             </Typography>
           </Toolbar>
         </AppBar>

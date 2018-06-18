@@ -4,6 +4,6 @@ import { Header } from '../'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Header />, div)
+  ReactDOM.render(<Header setTitle={() => {}} />, div)
   ReactDOM.unmountComponentAtNode(div)
 })

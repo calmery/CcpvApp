@@ -27,14 +27,6 @@ export class SideMenu extends Component {
               <ListItemText primary="Top" />
             </ListItem>
           </Link>
-          <Link to="/todo" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-              <ListItemIcon>
-                <EditIcon />
-              </ListItemIcon>
-              <ListItemText primary="ToDo" />
-            </ListItem>
-          </Link>
           <Link to="/edit" style={{ textDecoration: 'none' }}>
             <ListItem button>
               <ListItemIcon>

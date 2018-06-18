@@ -4,6 +4,6 @@ import { Search } from '../'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Search />, div)
+  ReactDOM.render(<Search setTitle={() => {}} />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
