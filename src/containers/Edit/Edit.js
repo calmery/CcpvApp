@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
-
-import { setTitle } from 'modules/Title/actions'
+import './Edit.css'
 
 export class Edit extends Component {
-  componentDidMount() {
-    this.props.dispatch(setTitle('Edit'))
-  }
-
   render() {
-    return <p>Edit</p>
+    return <div className="Edit">Edit</div>
   }
 }

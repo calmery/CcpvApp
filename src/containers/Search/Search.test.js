@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Top } from '../'
+import { Search } from '../'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Top />, div)
+  ReactDOM.render(<Search />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
