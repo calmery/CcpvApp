@@ -6,6 +6,7 @@ import { ToDo as ToDoComponent } from './ToDo/ToDo'
 import { Edit as EditComponent } from './Edit/Edit'
 import { Setting as SettingComponent } from './Setting/Setting'
 import { Search as SearchComponent } from './Search/Search'
+import { List as ListComponent } from './List/List'
 
 const connectStore = target => {
   return connect(state => {
@@ -19,3 +20,4 @@ export const ToDo = connectStore(ToDoComponent)
 export const Edit = connectStore(EditComponent)
 export const Setting = connectStore(SettingComponent)
 export const Search = connectStore(SearchComponent)
+export const List = connectStore(ListComponent)
