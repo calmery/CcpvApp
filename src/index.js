@@ -13,7 +13,7 @@ import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import { Header, Top, ToDo, Edit, Setting, Search } from 'containers'
+import { Header, Top, ToDo, Edit, Setting, Search, List } from 'containers'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -27,6 +27,7 @@ ReactDOM.render(
           <Route path="/edit" component={Edit} />
           <Route path="/setting" component={Setting} />
           <Route path="/search" component={Search} />
+          <Route path="/list" component={List} />
         </div>
       </div>
     </ConnectedRouter>
