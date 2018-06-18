@@ -1,37 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import { Route } from 'react-router'
-
-// Redux and Router
-import { store, history } from './modules'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 // Static Files
 import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import { Header, Top, ToDo, Edit, Setting, Search, List } from 'containers'
+import { Header, Top, Edit, Setting, Search, List } from 'containers'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
+  <BrowserRouter>
+    <div>
+      <Header />
       <div>
-        <Header />
-        <div>
-          {/* Routing */}
-          <Route exact path="/" component={Top} />
-          <Route path="/todo" component={ToDo} />
-          <Route path="/edit" component={Edit} />
-          <Route path="/setting" component={Setting} />
-          <Route path="/search" component={Search} />
-          <Route path="/list" component={List} />
-        </div>
+        <Route exact path="/" component={Top} />
+        <Route path="/edit" component={Edit} />
+        <Route path="/setting" component={Setting} />
+        <Route path="/search" component={Search} />
+        <Route path="/list" component={List} />
       </div>
-    </ConnectedRouter>
-  </Provider>,
+    </div>
+  </BrowserRouter>,
   document.getElementById('root')
 )
 
