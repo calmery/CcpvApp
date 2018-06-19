@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import './Edit.css'
-import IconTabs from './IconTabs'
-import Contents from './Contents'
 
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -22,33 +19,41 @@ import BlockIcon from "@material-ui/icons/Block";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
-export class Edit extends Component {
-
-  constructor(props) {
-      super(props);
-      this.state ={
-        data:[
-          {id: 1,username:'taro',date:'2017/1/1', text: 'I am Taro',dangerFlg:true},
-          {id: 2,username:'jiro',date:'2017/3/1', text: 'I am jiro',dangerFlg:true},
-          {id: 3,username:'たろう',date:'2017/3/1', text: 'たろうです',dangerFlg:true},
-          {id: 4,username:'じろう',date:'2017/3/1', text: 'じろうです',dangerFlg:true}
-        ],
-        //color=
-      }
+export default class Contents extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      dangerFlg: false,
+      color: ['red','green']
+    };
   }
 
-  componentDidMount() {
-    this.props.setTitle('Edit')
-  }
+  handleDangerClick = () => {
+    this.setState({ dangerFlg: !this.state.dangerFlg });
+    console.log(this.state.dangerFlg)
+  };
 
   render() {
-    var contents = this.state.data.map((data) => {
-      return (<Contents username={data.username} date={data.date} text={data.text} />);
-    })
     return (
-      <div>
-        <IconTabs />
-        { contents }
+      <div style={{ margin: '15px 20px 0px 20px'}}>
+        <Card>
+          <CardHeader
+            avatar={ <Avatar>R</Avatar> }
+            title={ this.props.username }
+            subheader={ this.props.date }
+          />
+          <CardContent>
+            <Typography component="p">{ this.props.text }</Typography>
+          </CardContent>
+
+          <CardActions disableActionSpacing>
+            <IconButton
+              onClick={this.handleDangerClick}
+              aria-label="Share">
+              <BlockIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
       </div>
     );
   }
