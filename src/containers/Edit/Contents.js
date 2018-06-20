@@ -6,8 +6,8 @@ import CardActions from '@material-ui/core/CardActions'
 import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
-import red from '@material-ui/core/colors/red'
-import green from '@material-ui/core/colors/green'
+import Red from '@material-ui/core/colors/red'
+import Green from '@material-ui/core/colors/green'
 import BlockIcon from '@material-ui/icons/Block'
 
 export default class Contents extends React.Component {
@@ -15,7 +15,7 @@ export default class Contents extends React.Component {
     super(props)
     this.state = {
       dangerFlg: true,
-      color: [red[300], green[100]]
+      color: [Red[300], Green[100]]
     }
   }
 
