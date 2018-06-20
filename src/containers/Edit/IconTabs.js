@@ -3,7 +3,6 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 
 export default class IconTabs extends React.Component {
@@ -21,10 +20,12 @@ export default class IconTabs extends React.Component {
   };
 
   render() {
+    const { value } = this.state;
+
     return (
       <Paper style={{ width: this.getWindowSize() }}>
         <Tabs
-          value={this.state.value}
+          value={ value }
           onChange={this.handleChange}
           fullWidth
           indicatorColor="primary"
