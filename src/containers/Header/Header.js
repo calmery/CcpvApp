@@ -8,6 +8,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { SideMenu } from 'components'
 import './Header.css'
 
+import Button from '@material-ui/core/Button';
+
 export class Header extends Component {
   constructor(props) {
     super(props)
@@ -46,6 +48,8 @@ export class Header extends Component {
             >
               {this.state.title}
             </Typography>
+            <Button color="inherit">CANCEL</Button>
+            <Button color="inherit">SAVE</Button>
           </Toolbar>
         </AppBar>
         <SwipeableDrawer
