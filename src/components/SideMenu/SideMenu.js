@@ -7,7 +7,8 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import HomeIcon from '@material-ui/icons/Home'
-import EditIcon from '@material-ui/icons/Edit'
+import SearchIcon from '@material-ui/icons/Search'
+import ListIcon from '@material-ui/icons/List'
 import SettingsIcon from '@material-ui/icons/Settings'
 
 export class SideMenu extends Component {
@@ -27,12 +28,20 @@ export class SideMenu extends Component {
               <ListItemText primary="Top" />
             </ListItem>
           </Link>
-          <Link to="/edit" style={{ textDecoration: 'none' }}>
+          <Link to="/search" style={{ textDecoration: 'none' }}>
             <ListItem button>
               <ListItemIcon>
-                <EditIcon />
+                <SearchIcon />
               </ListItemIcon>
-              <ListItemText primary="Edit" />
+              <ListItemText primary="Search" />
+            </ListItem>
+          </Link>
+          <Link to="/list" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon>
+                <ListIcon />
+              </ListItemIcon>
+              <ListItemText primary="List" />
             </ListItem>
           </Link>
           <Divider />
