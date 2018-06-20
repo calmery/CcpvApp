@@ -27,7 +27,11 @@ export default class Contents extends React.Component {
   render() {
     return (
       <div style={{ margin: '15px 20px 0px 20px' }}>
-        <Card style={{ backgroundColor: this.state.color[Number(this.state.dangerFlg)] }}>
+        <Card
+          style={{
+            backgroundColor: this.state.color[Number(this.state.dangerFlg)]
+          }}
+        >
           <CardHeader
             avatar={<Avatar>R</Avatar>}
             title={this.props.username}
