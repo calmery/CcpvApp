@@ -15,7 +15,7 @@ export default class Contents extends React.Component {
     super(props)
     this.state = {
       dangerFlg: true,
-      color: ['red', 'green']
+      color: [red[300], green[100]]
     }
   }
 
