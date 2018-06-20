@@ -46,9 +46,9 @@ export class Edit extends Component {
   }
 
   render() {
-    var contents = this.state.data.map(data => {
-      return (
-        <Contents username={data.username} date={data.date} text={data.text} />
+    var contents = this.state.data.map((data, index) => {
+    　return (
+        <Contents username={data.username} date={data.date} text={data.text} key={index} />
       )
     })
     return (
