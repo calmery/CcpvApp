@@ -7,13 +7,14 @@ import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import red from '@material-ui/core/colors/red'
+import green from '@material-ui/core/colors/green'
 import BlockIcon from '@material-ui/icons/Block'
 
 export default class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dangerFlg: false,
+      dangerFlg: true,
       color: ['red', 'green']
     }
   }
@@ -26,7 +27,7 @@ export default class Contents extends React.Component {
   render() {
     return (
       <div style={{ margin: '15px 20px 0px 20px' }}>
-        <Card containerStyle={{ backgroundColor: red }}>
+        <Card style={{ backgroundColor: this.state.color[Number(this.state.dangerFlg)] }}>
           <CardHeader
             avatar={<Avatar>R</Avatar>}
             title={this.props.username}
