@@ -6,9 +6,9 @@ import { SideMenu } from './SideMenu'
 it('renders without crashing', () => {
   const div = document.createElement('div')
   ReactDOM.render(
-      <BrowserRouter>
-        <SideMenu />
-      </BrowserRouter>,
+    <BrowserRouter>
+      <SideMenu />
+    </BrowserRouter>,
     div
   )
   ReactDOM.unmountComponentAtNode(div)
