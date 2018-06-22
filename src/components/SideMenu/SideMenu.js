@@ -12,7 +12,6 @@ import ListIcon from '@material-ui/icons/List'
 import SettingsIcon from '@material-ui/icons/Settings'
 import EditIcon from '@material-ui/icons/Edit'
 
-
 export class SideMenu extends Component {
   render() {
     return (
