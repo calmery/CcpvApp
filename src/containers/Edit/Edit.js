@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Edit.css'
-import IconTabs from './IconTabs'
 import Contents from './Contents'
 
 export class Edit extends Component {
@@ -37,7 +36,6 @@ export class Edit extends Component {
           dangerFlg: true
         }
       ]
-      //color=
     }
   }
 
@@ -58,7 +56,6 @@ export class Edit extends Component {
     })
     return (
       <div>
-        <IconTabs />
         {contents}
       </div>
     )
