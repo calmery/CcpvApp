@@ -10,8 +10,6 @@ import registerServiceWorker from './assets/registerServiceWorker'
 // Containers
 import { Header, Top, Edit, Setting, Search, List } from 'containers'
 
-import auth from 'requests/authentication'
-
 class App extends Component {
   constructor(props) {
     super(props)
