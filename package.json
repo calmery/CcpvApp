@@ -6,6 +6,8 @@
   "dependencies": {
     "@material-ui/core": "^1.1.0",
     "@material-ui/icons": "^1.1.0",
+    "axios": "^0.18.0",
+    "firebase": "^5.1.0",
     "react": "^16.3.2",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.3.2",
@@ -22,6 +24,7 @@
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
+    "jest-localstorage-mock": "^2.2.0",
     "prettier": "^1.12.1"
   }
 }
