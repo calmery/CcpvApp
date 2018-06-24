@@ -78,7 +78,11 @@ class Authentication {
 
   // API のリクエストに必要なキーをストレージから削除する
   reset() {
-    localStorage.removeItem(LocalStorage.key)
+    localStorage.removeItem(LocalStorage.userId, this._userId)
+    localStorage.removeItem(LocalStorage.userName, this._userName)
+    localStorage.removeItem(LocalStorage.apiKey, this._apiKey)
+
+    this._isAuthenticated = false
   }
 
   // Get
