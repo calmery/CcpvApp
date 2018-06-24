@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-
-import { setTitle } from 'modules/Title/actions'
+import './Search.css'
 
 export class Search extends Component {
   componentDidMount() {
-    this.props.dispatch(setTitle('Search'))
+    this.props.setTitle('Search')
   }
 
   render() {
