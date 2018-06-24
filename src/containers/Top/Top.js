@@ -5,11 +5,9 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 
-import { setTitle } from 'modules/Title/actions'
-
 export class Top extends Component {
   componentDidMount() {
-    this.props.dispatch(setTitle('Top'))
+    this.props.setTitle('Top')
   }
 
   render() {
