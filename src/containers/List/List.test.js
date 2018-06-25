@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { List } from '../'
+import { ListComponent } from '../'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<List setTitle={() => {}} />, div)
+  ReactDOM.render(<ListComponent setTitle={() => {}} />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
