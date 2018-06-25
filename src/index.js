@@ -8,7 +8,7 @@ import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import { Header, Top, Edit, Setting, Search, List } from 'containers'
+import { Header, Top, Edit, Setting, Search, ListComponent } from 'containers'
 
 class App extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class App extends Component {
               <Route
                 path="/list"
                 render={props => (
-                  <List setTitle={title => this.setTitle(title)} />
+                  <ListComponent setTitle={title => this.setTitle(title)} />
                 )}
               />
             </Switch>
