@@ -4,6 +4,6 @@ import { List } from '../'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<List setTitle={() => {}} />, div)
+  ReactDOM.render(<ListComponent setTitle={() => {}} />, div)
   ReactDOM.unmountComponentAtNode(div)
 })
