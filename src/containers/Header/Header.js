@@ -16,12 +16,14 @@ export class Header extends Component {
 
     this.state = {
       isOpen: false,
-      title: 'Untitled'
+      title: 'Untitled',
+      isEdit: false
     }
   }
 
-  updateTitle(title) {
-    this.setState({ title })
+  // タイトルとヘッダーの表示内容の更新を行う
+  update(title) {
+    this.setState({ title, isEdit: title === 'Edit' })
   }
 
   render() {
@@ -48,8 +50,27 @@ export class Header extends Component {
             >
               {this.state.title}
             </Typography>
-            <Button color="inherit">CANCEL</Button>
-            <Button color="inherit">SAVE</Button>
+            // Edit ページのみ以下のボタンを表示する
+            {(() => {
+              if (this.state.isEdit) {
+                return (
+                  <div>
+                    <Button
+                      color="inherit"
+                      onClick={() => this.props.editEventHandler('cancel')}
+                    >
+                      CANCEL
+                    </Button>
+                    <Button
+                      color="inherit"
+                      onClick={() => this.props.editEventHandler('save')}
+                    >
+                      SAVE
+                    </Button>
+                  </div>
+                )
+              }
+            })()}
           </Toolbar>
         </AppBar>
         <SwipeableDrawer

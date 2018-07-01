@@ -15,13 +15,21 @@ class App extends Component {
     super(props)
 
     this.state = {
-      title: 'Top'
+      title: 'Top',
+      editEventHandler: () => {}
     }
   }
 
   setTitle(title) {
     this.setState({ title })
-    this.refs.header.updateTitle(title)
+    this.refs.header.update(title)
+  }
+
+  // Edit ページを表示しているときに Header に表示されるボタンからのイベントを受け取る
+  editEventHandler(command) {
+    if (this.state.editEventHandler) {
+      this.state.editEventHandler(command)
+    }
   }
 
   render() {
@@ -29,7 +37,10 @@ class App extends Component {
       <DocumentTitle title={this.state.title}>
         <BrowserRouter>
           <div>
-            <Header ref="header" />
+            <Header
+              ref="header"
+              editEventHandler={command => this.editEventHandler(command)}
+            />
             <Switch>
               <Route
                 exact
@@ -41,7 +52,15 @@ class App extends Component {
               <Route
                 path="/edit"
                 render={props => (
-                  <Edit setTitle={title => this.setTitle(title)} />
+                  // setEventHandler を渡し，そこからイベントを Edit に渡すための関数を受け取る
+                  // 受け取った関数は State で管理する
+                  // 辛いので Redux をいれて解決したい
+                  <Edit
+                    setTitle={title => this.setTitle(title)}
+                    setEventHandler={fn =>
+                      this.setState({ editEventHandler: fn })
+                    }
+                  />
                 )}
               />
               <Route
