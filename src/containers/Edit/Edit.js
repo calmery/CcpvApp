@@ -54,10 +54,6 @@ export class Edit extends Component {
         />
       )
     })
-    return (
-      <div>
-        {contents}
-      </div>
-    )
+    return <div>{contents}</div>
   }
 }
