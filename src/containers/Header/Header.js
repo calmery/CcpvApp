@@ -19,7 +19,7 @@ export class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <AppBar position="fixed">
+        <AppBar position="static">
           <Toolbar>
             <IconButton
               color="inherit"
