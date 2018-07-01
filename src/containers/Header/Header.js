@@ -6,27 +6,19 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { SideMenu } from 'components'
+
 import './Header.css'
 
-import Button from '@material-ui/core/Button'
-
 export class Header extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isOpen: false,
-      title: 'Untitled'
+  menuToggle() {
+    if (this.props.menuToggle) {
+      this.props.menuToggle()
     }
-  }
-
-  updateTitle(title) {
-    this.setState({ title })
   }
 
   render() {
     return (
-      <div className="Header" style={{ flexGrow: 1 }}>
+      <div className="Header">
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -37,7 +29,7 @@ export class Header extends Component {
                 marginRight: 20
               }}
             >
-              <MenuIcon onClick={() => this.open()} />
+              <MenuIcon onClick={() => this.menuToggle()} />
             </IconButton>
             <Typography
               variant="title"
@@ -46,29 +38,43 @@ export class Header extends Component {
                 flex: 1
               }}
             >
-              {this.state.title}
+              {this.props.title}
             </Typography>
-            <Button color="inherit">CANCEL</Button>
-            <Button color="inherit">SAVE</Button>
+            {(() => {
+              if (this.props.children) {
+                return this.props.children
+              }
+            })()}
           </Toolbar>
         </AppBar>
-        <SwipeableDrawer
-          open={this.state.isOpen}
-          onClose={() => this.close()}
-          onOpen={() => this.open()}
-          onClick={() => this.close()}
-        >
-          <SideMenu />
-        </SwipeableDrawer>
       </div>
     )
   }
+}
 
-  open() {
-    this.setState({ isOpen: true })
+export class SideBar extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isOpen: false
+    }
   }
 
-  close() {
-    this.setState({ isOpen: false })
+  toggle() {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
+
+  render() {
+    return (
+      <SwipeableDrawer
+        open={this.state.isOpen}
+        onClose={() => this.toggle()}
+        onOpen={() => this.toggle()}
+        onClick={() => this.toggle()}
+      >
+        <SideMenu />
+      </SwipeableDrawer>
+    )
   }
 }

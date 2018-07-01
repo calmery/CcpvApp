@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Setting.css'
 
+import { Header } from 'containers'
 import authentication from 'requests/authentication'
 
 export class Setting extends Component {
@@ -15,6 +16,7 @@ export class Setting extends Component {
   render() {
     return (
       <div className="Setting">
+        <Header menuToggle={this.props.menuToggle} title="Top" />
         <div onClick={this.authentication}>Authentication</div>
       </div>
     )

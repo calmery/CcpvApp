@@ -8,7 +8,7 @@ import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import { Header, Top, Edit, Setting, Search, List } from 'containers'
+import { Top, Edit, Setting, Search, List, SideBar } from 'containers'
 
 class App extends Component {
   constructor(props) {
@@ -21,45 +21,63 @@ class App extends Component {
 
   setTitle(title) {
     this.setState({ title })
-    this.refs.header.updateTitle(title)
+  }
+
+  menuToggle() {
+    this.refs.sidebar.toggle()
   }
 
   render() {
     return (
       <DocumentTitle title={this.state.title}>
         <BrowserRouter>
-          <div>
-            <Header ref="header" />
+          <div className="App">
+            <SideBar ref="sidebar" />
             <Switch>
               <Route
                 exact
                 path="/"
                 render={props => (
-                  <Top setTitle={title => this.setTitle(title)} />
+                  <Top
+                    setTitle={title => this.setTitle(title)}
+                    menuToggle={() => this.menuToggle()}
+                  />
                 )}
               />
               <Route
                 path="/edit"
                 render={props => (
-                  <Edit setTitle={title => this.setTitle(title)} />
+                  <Edit
+                    setTitle={title => this.setTitle(title)}
+                    menuToggle={() => this.menuToggle()}
+                  />
                 )}
               />
               <Route
                 path="/setting"
                 render={props => (
-                  <Setting setTitle={title => this.setTitle(title)} />
+                  <Setting
+                    setTitle={title => this.setTitle(title)}
+                    menuToggle={() => this.menuToggle()}
+                  />
                 )}
               />
               <Route
                 path="/search"
                 render={props => (
-                  <Search setTitle={title => this.setTitle(title)} />
+                  <Search
+                    setTitle={title => this.setTitle(title)}
+                    menuToggle={() => this.menuToggle()}
+                  />
                 )}
               />
               <Route
                 path="/list"
                 render={props => (
-                  <List setTitle={title => this.setTitle(title)} />
+                  <List
+                    setTitle={title => this.setTitle(title)}
+                    menuToggle={() => this.menuToggle()}
+                  />
                 )}
               />
             </Switch>

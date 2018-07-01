@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
+
+import { Header } from 'containers'
+
 import './Edit.css'
 import Contents from './Contents'
 
@@ -43,6 +47,14 @@ export class Edit extends Component {
     this.props.setTitle('Edit')
   }
 
+  cancel() {
+    console.log('Cancel')
+  }
+
+  save() {
+    console.log('Save')
+  }
+
   render() {
     var contents = this.state.data.map((data, index) => {
       return (
@@ -55,7 +67,11 @@ export class Edit extends Component {
       )
     })
     return (
-      <div>
+      <div className="Edit">
+        <Header menuToggle={this.props.menuToggle} title="Edit">
+          <Button color="inherit" onClick={() => this.cancel()}>CANCEL</Button>
+          <Button color="inherit" onClick={() => this.save()}>SAVE</Button>
+        </Header>
         {contents}
       </div>
     )
