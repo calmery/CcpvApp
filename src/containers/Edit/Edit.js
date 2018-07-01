@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
+
+import { Header } from 'containers'
+
 import './Edit.css'
 import Contents from './Contents'
 
@@ -41,11 +45,14 @@ export class Edit extends Component {
 
   componentDidMount() {
     this.props.setTitle('Edit')
-    this.props.setEventHandler(this.eventHandler.bind(this))
   }
 
-  eventHandler(command) {
-    console.log('Edit', command)
+  cancel() {
+    console.log('Cancel')
+  }
+
+  save() {
+    console.log('Save')
   }
 
   render() {
@@ -59,6 +66,14 @@ export class Edit extends Component {
         />
       )
     })
-    return <div>{contents}</div>
+    return (
+      <div className="Edit">
+        <Header menuToggle={this.props.menuToggle} title="Edit">
+          <Button color="inherit" onClick={() => this.cancel()}>CANCEL</Button>
+          <Button color="inherit" onClick={() => this.save()}>SAVE</Button>
+        </Header>
+        {contents}
+      </div>
+    )
   }
 }
