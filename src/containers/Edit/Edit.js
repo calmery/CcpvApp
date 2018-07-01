@@ -41,6 +41,11 @@ export class Edit extends Component {
 
   componentDidMount() {
     this.props.setTitle('Edit')
+    this.props.setEventHandler(this.eventHandler.bind(this))
+  }
+
+  eventHandler(command) {
+    console.log('Edit', command)
   }
 
   render() {
