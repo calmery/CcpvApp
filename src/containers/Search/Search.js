@@ -12,7 +12,6 @@ export class Search extends Component {
     return (
       <div className="Search">
         <Header menuToggle={this.props.menuToggle} title="Search" />
-        
       </div>
     )
   }

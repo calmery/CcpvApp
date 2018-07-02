@@ -11,7 +11,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
-
+import Checkbox from '@material-ui/core/Checkbox'
 export class ListComponent extends Component {
   componentDidMount() {
     this.props.setTitle('List')
@@ -24,26 +24,25 @@ export class ListComponent extends Component {
 
         <List component="nav">
           <ListItem button>
-            <ListItemText primary="Inbox" />
+            <Checkbox checked={true} />
+            <ListItemText primary="001" secondary="July 20, 2014" />
             <ListItemSecondaryAction>
-                      <IconButton aria-label="Delete">
-                        <DeleteIcon />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                    <ListItemText secondary="July 20, 2014" />
+              <IconButton aria-label="Delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
           </ListItem>
 
           <ListItem button>
-            <ListItemText primary="Drafts" />
+            <Checkbox checked={true} />
+            <ListItemText primary="002" secondary="July 20, 2014" />
             <ListItemSecondaryAction>
-                      <IconButton aria-label="Delete">
-                        <DeleteIcon />
-                      </IconButton>
-                    </ListItemSecondaryAction>
-                    <ListItemText secondary="July 20, 2014" />
+              <IconButton aria-label="Delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
           </ListItem>
         </List>
-
       </div>
     )
   }
