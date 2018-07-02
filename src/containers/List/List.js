@@ -12,7 +12,8 @@ import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 
-import { Header, SearchDialog, NotificationDialog } from 'containers'
+import { Header, SearchDialog } from 'containers'
+import { NotificationDialog } from 'components'
 
 export class ListComponent extends Component {
   componentDidMount() {
