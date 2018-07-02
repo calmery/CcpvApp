@@ -1,18 +1,26 @@
 import React, { Component } from 'react'
 import './Search.css'
-
-import { Header } from 'containers'
+import TextField from '@material-ui/core/TextField'
 
 export class Search extends Component {
-  componentDidMount() {
-    this.props.setTitle('Search')
-  }
-
   render() {
     return (
       <div className="Search">
-        <Header menuToggle={this.props.menuToggle} title="Search" />
-        Hello!
+        <TextField
+          autoFocus
+          margin="dense"
+          id="name"
+          label="Name"
+          type="text"
+          fullWidth
+        />
+        <TextField
+          margin="dense"
+          id="query"
+          label="Query"
+          type="text"
+          fullWidth
+        />
       </div>
     )
   }
