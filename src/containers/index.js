@@ -1,5 +1,4 @@
 export * from './Header/Header'
-export * from './Notification/NotificationDialog'
 export * from './Edit/Edit'
 export * from './Search/SearchDialog'
 export * from './List/List'
