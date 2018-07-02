@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Top.css'
+import './Notification.css'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
@@ -25,10 +25,10 @@ const data = [
   }
 ]
 
-export class Top extends Component {
+export class Notification extends Component {
   render() {
     return (
-      <div className="Top">
+      <div className="Notification">
         <div>
           {data.map(n => {
             return (
