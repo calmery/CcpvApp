@@ -39,7 +39,7 @@ export class Top extends Component {
         <div>
           {data.map(n => {
             return (
-              <div>
+              <div key={n.title}>
                 {
                   <Card>
                     <CardContent>
