@@ -21,7 +21,7 @@ import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 import Slide from '@material-ui/core/Slide'
 
-import { Header, Search, Top } from 'containers'
+import { Header, Search, Notification } from 'containers'
 
 function Transition(props) {
   return <Slide direction="up" {...props} />
@@ -98,7 +98,7 @@ export class ListComponent extends Component {
               </Typography>
             </Toolbar>
           </AppBar>
-          <Top />
+          <Notification />
         </Dialog>
         <Dialog
           open={this.state.open}
