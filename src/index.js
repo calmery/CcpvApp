@@ -8,7 +8,7 @@ import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import { List, Edit, SideBar } from 'containers'
+import { ListComponent as List, Edit, SideBar } from 'containers'
 
 class App extends Component {
   constructor(props) {
