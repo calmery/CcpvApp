@@ -1,5 +1,5 @@
 export * from './Header/Header'
-export * from './Notification/Notification'
+export * from './Notification/NotificationDialog'
 export * from './Edit/Edit'
-export * from './Search/Search'
+export * from './Search/SearchDialog'
 export * from './List/List'
