@@ -1,26 +1,34 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
-import AddIcon from '@material-ui/icons/Add'
-import Notifications from '@material-ui/icons/Notifications'
-import NotificationsNone from '@material-ui/icons/NotificationsNone'
+
 import './List.css'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import IconButton from '@material-ui/core/IconButton'
 import Divider from '@material-ui/core/Divider'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListIcon from '@material-ui/icons/List'
+import IconButton from '@material-ui/core/IconButton'
+import DeleteIcon from '@material-ui/icons/Delete'
+import NotificationsNone from '@material-ui/icons/NotificationsNone'
+import Checkbox from '@material-ui/core/Checkbox'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import CloseIcon from '@material-ui/icons/Close'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import AddIcon from '@material-ui/icons/Add'
+import Slide from '@material-ui/core/Slide'
 
-import { Header, Search } from 'containers'
+import { Header, Search, Top } from 'containers'
+
+function Transition(props) {
+  return <Slide direction="up" {...props} />
+}
 
 export class ListComponent extends Component {
   constructor(props) {
@@ -57,12 +65,12 @@ export class ListComponent extends Component {
       <div className="List">
         <Header menuToggle={this.props.menuToggle} title="List">
           <IconButton
-                aria-haspopup="true"
-                color="inherit"
-                onClick={() => this.handleClickOpen2()}
-              >
-                <NotificationsNone />
-              </IconButton>
+            aria-haspopup="true"
+            color="inherit"
+            onClick={() => this.handleClickOpen2()}
+          >
+            <NotificationsNone />
+          </IconButton>
         </Header>
         <Button
           variant="fab"
@@ -76,27 +84,24 @@ export class ListComponent extends Component {
         <Dialog
           fullScreen
           open={this.state.open2}
-          onClose={() => this.handleClose()}
+          onClose={() => this.handleClose2()}
+          TransitionComponent={Transition}
         >
-          <AppBar>
+          <AppBar position="static">
             <Toolbar>
-              <IconButton color="inherit" onClick={() => this.handleClose2()} aria-label="Close">
+              <IconButton
+                color="inherit"
+                onClick={() => this.handleClose2()}
+                aria-label="Close"
+              >
                 <CloseIcon />
               </IconButton>
               <Typography variant="title" color="inherit">
-                Sound
+                Notifications
               </Typography>
             </Toolbar>
           </AppBar>
-          <List>
-            <ListItem button>
-              <ListItemText primary="Phone ringtone" secondary="Titania" />
-            </ListItem>
-            <Divider />
-            <ListItem button>
-              <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-            </ListItem>
-          </List>
+          <Top />
         </Dialog>
         <Dialog
           open={this.state.open}
@@ -116,6 +121,27 @@ export class ListComponent extends Component {
             </Button>
           </DialogActions>
         </Dialog>
+        <List component="nav">
+          <ListItem button>
+            <Checkbox checked={true} />
+            <ListItemText primary="001" secondary="July 20, 2014" />
+            <ListItemSecondaryAction>
+              <IconButton aria-label="Delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+
+          <ListItem button>
+            <Checkbox checked={true} />
+            <ListItemText primary="002" secondary="July 20, 2014" />
+            <ListItemSecondaryAction>
+              <IconButton aria-label="Delete">
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+        </List>
       </div>
     )
   }
