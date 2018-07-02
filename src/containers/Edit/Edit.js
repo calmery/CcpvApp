@@ -69,8 +69,12 @@ export class Edit extends Component {
     return (
       <div className="Edit">
         <Header menuToggle={this.props.menuToggle} title="Edit">
-          <Button color="inherit" onClick={() => this.cancel()}>CANCEL</Button>
-          <Button color="inherit" onClick={() => this.save()}>SAVE</Button>
+          <Button color="inherit" onClick={() => this.cancel()}>
+            CANCEL
+          </Button>
+          <Button color="inherit" onClick={() => this.save()}>
+            SAVE
+          </Button>
         </Header>
         {contents}
       </div>
