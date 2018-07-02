@@ -6,11 +6,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
-import HomeIcon from '@material-ui/icons/Home'
-import SearchIcon from '@material-ui/icons/Search'
 import ListIcon from '@material-ui/icons/List'
-import SettingsIcon from '@material-ui/icons/Settings'
-import EditIcon from '@material-ui/icons/Edit'
 
 export class SideMenu extends Component {
   render() {
@@ -24,42 +20,9 @@ export class SideMenu extends Component {
           <Link to="/" style={{ textDecoration: 'none' }}>
             <ListItem button>
               <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Top" />
-            </ListItem>
-          </Link>
-          <Link to="/search" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-              <ListItemIcon>
-                <SearchIcon />
-              </ListItemIcon>
-              <ListItemText primary="Search" />
-            </ListItem>
-          </Link>
-          <Link to="/list" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-              <ListItemIcon>
                 <ListIcon />
               </ListItemIcon>
               <ListItemText primary="List" />
-            </ListItem>
-          </Link>
-          <Link to="/edit" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-              <ListItemIcon>
-                <EditIcon />
-              </ListItemIcon>
-              <ListItemText primary="Edit" />
-            </ListItem>
-          </Link>
-          <Divider />
-          <Link to="/setting" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-              <ListItemIcon>
-                <SettingsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Setting" />
             </ListItem>
           </Link>
         </List>
