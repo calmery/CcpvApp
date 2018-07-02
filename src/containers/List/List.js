@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
-import AddIcon from '@material-ui/icons/Add'
+
 import './List.css'
 
 import { Header } from 'containers'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
+
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
