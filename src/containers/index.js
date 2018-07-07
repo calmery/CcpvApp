@@ -1,6 +1,4 @@
 export * from './Header/Header'
-export * from './Top/Top'
 export * from './Edit/Edit'
-export * from './Setting/Setting'
-export * from './Search/Search'
+export * from './Search/SearchDialog'
 export * from './List/List'
