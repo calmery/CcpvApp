@@ -8,14 +8,7 @@ import './index.css'
 import registerServiceWorker from './assets/registerServiceWorker'
 
 // Containers
-import {
-  Top,
-  Edit,
-  Setting,
-  Search,
-  ListComponent as List,
-  SideBar
-} from 'containers'
+import { ListComponent as List, Edit, SideBar } from 'containers'
 
 class App extends Component {
   constructor(props) {
@@ -45,7 +38,7 @@ class App extends Component {
                 exact
                 path="/"
                 render={props => (
-                  <Top
+                  <List
                     setTitle={title => this.setTitle(title)}
                     menuToggle={() => this.menuToggle()}
                   />
@@ -55,33 +48,6 @@ class App extends Component {
                 path="/edit"
                 render={props => (
                   <Edit
-                    setTitle={title => this.setTitle(title)}
-                    menuToggle={() => this.menuToggle()}
-                  />
-                )}
-              />
-              <Route
-                path="/setting"
-                render={props => (
-                  <Setting
-                    setTitle={title => this.setTitle(title)}
-                    menuToggle={() => this.menuToggle()}
-                  />
-                )}
-              />
-              <Route
-                path="/search"
-                render={props => (
-                  <Search
-                    setTitle={title => this.setTitle(title)}
-                    menuToggle={() => this.menuToggle()}
-                  />
-                )}
-              />
-              <Route
-                path="/list"
-                render={props => (
-                  <List
                     setTitle={title => this.setTitle(title)}
                     menuToggle={() => this.menuToggle()}
                   />

@@ -21,14 +21,7 @@ export class Header extends Component {
       <div className="Header">
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Menu"
-              style={{
-                marginLeft: -12,
-                marginRight: 20
-              }}
-            >
+            <IconButton color="inherit" aria-label="Menu">
               <MenuIcon onClick={() => this.menuToggle()} />
             </IconButton>
             <Typography

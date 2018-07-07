@@ -1,2 +1,2 @@
-export * from './Logo/Logo'
 export * from './SideMenu/SideMenu'
+export * from './Notification/NotificationDialog'
