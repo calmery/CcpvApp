@@ -5,14 +5,41 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 import axios from 'axios'
-
+import {url}from 'constants/url'
 export class Search extends Component {
+
+constructor(props){
+  super(props)
+
+  this.state ={
+  name:'',
+  query:''
+
+  }
+}
+
+search() {
+  axios.post(url + '/list',{
+    name:this.state.name,
+    query:this.state.query
+  }).then(response =>{
+    console.log(response)
+  })
+
+}
+onChangeNameField(event){
+  this.setState({name:event.target.value})
+}
+onChangeQueryField(event){
+  this.setState({query:event.target.value})
+}
+
   render() {
     return (
       <div className="Search">
-      <TextField id="名前" label="名前" margin="normal" /><br />
-        <TextField id="検索" label="検索" margin="normal" /><br />
-        <Button variant="raised" color="primary" className="button">
+      <TextField id="名前" label="名前" margin="normal" onChange={c => this.onChangeNameField(c)}/><br />
+        <TextField id="検索" label="検索" margin="normal" onChange={c => this.onChangeQueryField(c)} /><br />
+        <Button variant="raised" color="primary" className="button" onClick={() => this.search()}>
           検索
         </Button>
       </div>
