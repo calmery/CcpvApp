@@ -15,10 +15,35 @@ import AddIcon from '@material-ui/icons/Add'
 import { Header, SearchDialog } from 'containers'
 import { NotificationDialog } from 'components'
 
+import axios from 'axios'
+import {url} from 'constants/url'
+
 export class ListComponent extends Component {
+constructor(props){
+  super(props)
+
+  this.state = {
+    contents: []
+  }
+}
+
   componentDidMount() {
     this.props.setTitle('List')
+
+axios.get(url + '/list').then(response => {
+  this.setState({ contents: response.data })
+})
   }
+
+delete(index) {
+  let contents = this.state.contents
+  let result = []
+
+result[0] = contents[1]
+//console.log (contents)
+
+  this.setState({ contents: result })
+}
 
   render() {
     return (
@@ -44,24 +69,19 @@ export class ListComponent extends Component {
         <NotificationDialog ref="notification_dialog" />
         <SearchDialog ref="search_dialog" />
         <List>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="001" secondary="July 20, 2014" />
+{this.state.contents.map((content, index) => {
+  return (
+    <ListItem button key={index}>
+	<Checkbox checked={true} />
+            <ListItemText primary={content.name} secondary={content.query} />
             <ListItemSecondaryAction>
               <IconButton aria-label="Delete">
-                <DeleteIcon />
+                <DeleteIcon onClick={() => this.delete(index)} />
               </IconButton>
             </ListItemSecondaryAction>
           </ListItem>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="002" secondary="July 20, 2014" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
+  )
+})}
         </List>
       </div>
     )
