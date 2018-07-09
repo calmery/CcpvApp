@@ -39,7 +39,14 @@ delete(index) {
   let contents = this.state.contents
   let result = []
 
+for {let;
+  result[] = cotents[]
+}
 result[0] = contents[1]
+result[1] = contents[2]
+result[2] = contents[3]
+result[3] = contents[4]
+
 //console.log (contents)
 
   this.setState({ contents: result })
