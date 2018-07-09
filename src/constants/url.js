@@ -1,5 +1,6 @@
 // API の向き先を指定する
 export const url = (() => {
+  return 'https://ccpv-mock.herokuapp.com'
   // Production
   if (process.env.NODE_ENV === 'production') {
     return 'https://ccpv.herokuapp.com'
