@@ -23,7 +23,13 @@ constructor(props){
   super(props)
 
   this.state = {
-    contents: []
+    contents: [
+      {'id':1,'name':'たろう','query':'test1'},
+      {'id':2,'name':'じろう','query':'test2'},
+      {'id':3,'name':'しろう','query':'test3'},
+      {'id':4,'name':'ごろう','query':'test4'},
+      {'id':5,'name':'やまだ','query':'test5'},
+      ]
   }
 }
 
@@ -38,17 +44,13 @@ axios.get(url + '/list').then(response => {
 delete(index) {
   let contents = this.state.contents
   let result = []
-
-for {let;
-  result[] = cotents[]
-}
-result[0] = contents[1]
-result[1] = contents[2]
-result[2] = contents[3]
-result[3] = contents[4]
-
-//console.log (contents)
-
+  contents.forEach((item,i) => {
+    if (i === index){
+      return;
+    } else {
+      result.push(item)
+    }
+  })
   this.setState({ contents: result })
 }
 
@@ -76,8 +78,8 @@ result[3] = contents[4]
         <NotificationDialog ref="notification_dialog" />
         <SearchDialog ref="search_dialog" />
         <List>
-{this.state.contents.map((content, index) => {
-  return (
+          {this.state.contents.map((content, index) => {
+            return (
     <ListItem button key={index}>
 	<Checkbox checked={true} />
             <ListItemText primary={content.name} secondary={content.query} />
