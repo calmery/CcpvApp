@@ -41,6 +41,10 @@ axios.get(url + '/list').then(response => {
 })
   }
 
+move(index) {
+  window.location.href = '/edit?id=' + index
+}
+
 delete(index) {
   let contents = this.state.contents
   let result = []
@@ -80,7 +84,7 @@ delete(index) {
         <List>
           {this.state.contents.map((content, index) => {
             return (
-    <ListItem button key={index}>
+    <ListItem button key={index} onClick={() => this.move(index)}>
 	<Checkbox checked={true} />
             <ListItemText primary={content.name} secondary={content.query} />
             <ListItemSecondaryAction>
