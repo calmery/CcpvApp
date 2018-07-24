@@ -6,6 +6,9 @@ import { Header } from 'containers'
 import './Edit.css'
 import Contents from './Contents'
 
+import axios from 'axios'
+import {url} from 'constants/url'
+
 export class Edit extends Component {
   constructor(props) {
     super(props)
@@ -43,9 +46,13 @@ export class Edit extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.setTitle('Edit')
-  }
+  // componentDidMount() {
+  //   this.props.setTitle('Edit')
+  //   axios.get(url + '/edit').then(response => {
+  //     console.log(response)
+  //      this.setState({ data: response.data })
+  //   })
+  // }
 
   cancel() {
     console.log('Cancel')
