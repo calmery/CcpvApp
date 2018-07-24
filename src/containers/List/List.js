@@ -42,10 +42,14 @@ export class ListComponent extends Component {
   }
 
   move(index) {
-    window.location.href = '/edit?id=' + index
+   window.location.href = '/edit?id=' + index
   }
 
   delete(index) {
+    if (window.confirm('削除しますか') === false) {
+      return
+    }
+
     let contents = this.state.contents
     let result = []
     contents.forEach((item, i) => {
@@ -85,7 +89,7 @@ export class ListComponent extends Component {
           {this.state.contents.map((content, index) => {
             return (
               <ListItem button key={index} onClick={() => this.move(index)}>
-                <Checkbox checked={true} />
+                
                 <ListItemText
                   primary={content.name}
                   secondary={content.query}
