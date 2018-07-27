@@ -5,6 +5,7 @@ import { Header } from 'containers'
 
 import './Edit.css'
 import Contents from './Contents'
+import Alert from './Alert'
 
 import axios from 'axios'
 import {url} from 'constants/url'
@@ -46,13 +47,16 @@ export class Edit extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.setTitle('Edit')
-  //   axios.get(url + '/edit').then(response => {
-  //     console.log(response)
-  //      this.setState({ data: response.data })
-  //   })
-  // }
+  componentDidMount() {
+    this.props.setTitle('Edit')
+    let id = window.location.search.substring(1).split('&');
+    id = id[0].split('=')[1]
+    console.log(id)
+    axios.get(url + '/edit?id=' + id).then(response => {
+      console.log(response)
+       this.setState({ data: response.data })
+    })
+  }
 
   cancel() {
     console.log('Cancel')
@@ -60,6 +64,7 @@ export class Edit extends Component {
 
   save() {
     console.log('Save')
+    window.location.href='/'
   }
 
   render() {
@@ -81,6 +86,7 @@ export class Edit extends Component {
           </Button>
           <Button color="inherit" onClick={() => this.save()}>
             SAVE
+            <Alert />
           </Button>
         </Header>
         {contents}
