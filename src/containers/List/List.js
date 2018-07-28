@@ -16,43 +16,43 @@ import { Header, SearchDialog } from 'containers'
 import { NotificationDialog } from 'components'
 
 import axios from 'axios'
-import {url} from 'constants/url'
+import { url } from 'constants/url'
 
 export class ListComponent extends Component {
-constructor(props){
-  super(props)
+  constructor(props) {
+    super(props)
 
-  this.state = {
-    contents: [
-      {'id':1,'name':'たろう','query':'test1'},
-      {'id':2,'name':'じろう','query':'test2'},
-      {'id':3,'name':'しろう','query':'test3'},
-      {'id':4,'name':'ごろう','query':'test4'},
-      {'id':5,'name':'やまだ','query':'test5'},
+    this.state = {
+      contents: [
+        { id: 1, name: 'たろう', query: 'test1' },
+        { id: 2, name: 'じろう', query: 'test2' },
+        { id: 3, name: 'しろう', query: 'test3' },
+        { id: 4, name: 'ごろう', query: 'test4' },
+        { id: 5, name: 'やまだ', query: 'test5' }
       ]
+    }
   }
-}
 
   componentDidMount() {
     this.props.setTitle('List')
 
-axios.get(url + '/list').then(response => {
-  this.setState({ contents: response.data })
-})
+    axios.get(url + '/list').then(response => {
+      this.setState({ contents: response.data })
+    })
   }
 
-delete(index) {
-  let contents = this.state.contents
-  let result = []
-  contents.forEach((item,i) => {
-    if (i === index){
-      return;
-    } else {
-      result.push(item)
-    }
-  })
-  this.setState({ contents: result })
-}
+  delete(index) {
+    let contents = this.state.contents
+    let result = []
+    contents.forEach((item, i) => {
+      if (i === index) {
+        return
+      } else {
+        result.push(item)
+      }
+    })
+    this.setState({ contents: result })
+  }
 
   render() {
     return (
@@ -80,17 +80,20 @@ delete(index) {
         <List>
           {this.state.contents.map((content, index) => {
             return (
-    <ListItem button key={index}>
-	<Checkbox checked={true} />
-            <ListItemText primary={content.name} secondary={content.query} />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon onClick={() => this.delete(index)} />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-  )
-})}
+              <ListItem button key={index}>
+                <Checkbox checked={true} />
+                <ListItemText
+                  primary={content.name}
+                  secondary={content.query}
+                />
+                <ListItemSecondaryAction>
+                  <IconButton aria-label="Delete">
+                    <DeleteIcon onClick={() => this.delete(index)} />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            )
+          })}
         </List>
       </div>
     )
