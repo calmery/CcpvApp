@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
+
 import { Header } from 'containers'
 
 import './Edit.css'
 import Contents from './Contents'
-import Alert from './Alert'
 
 import axios from 'axios'
-import {url} from 'constants/url'
+import { url } from 'constants/url'
 
 export class Edit extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      open: false,
       data: [
         {
           id: 1,
@@ -47,24 +51,30 @@ export class Edit extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.setTitle('Edit')
-    let id = window.location.search.substring(1).split('&');
+  handleClickOpen = () => {
+    this.setState({ open: true })
+  }
+
+  handleClose = () => {
+    this.setState({ open: false })
+  }
+
+  componentWillMount() {
+    let id = window.location.search.substring(1).split('&')
     id = id[0].split('=')[1]
-    console.log(id)
     axios.get(url + '/edit?id=' + id).then(response => {
-      console.log(response)
-       this.setState({ data: response.data })
+      this.setState({ data: response.data })
     })
   }
 
   cancel() {
     console.log('Cancel')
+    window.location.href = '/'
   }
 
   save() {
     console.log('Save')
-    window.location.href='/'
+    //更新後のツイート情報を保存
   }
 
   render() {
@@ -84,12 +94,27 @@ export class Edit extends Component {
           <Button color="inherit" onClick={() => this.cancel()}>
             CANCEL
           </Button>
-          <Button color="inherit" onClick={() => this.save()}>
+          <Button
+            color="inherit"
+            onClick={(() => this.save(), this.handleClickOpen)}
+          >
             SAVE
-            <Alert />
           </Button>
         </Header>
         {contents}
+        <Dialog
+          open={this.state.open}
+          onClose={this.handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">編集しました</DialogTitle>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary">
+              戻る
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     )
   }
