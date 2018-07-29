@@ -44,7 +44,7 @@ export class ListComponentClass extends Component {
     this.props.setTitle('List')
 
     axios
-      .get('/list') //自分のリストの一覧を返す
+      .get('/list')
       .catch(() => {})
       .then(response => {
         // npm run test で落ちる
