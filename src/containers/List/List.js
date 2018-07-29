@@ -25,6 +25,7 @@ export class ListComponent extends Component {
 
   componentDidMount() {
     this.props.setTitle('List')
+
     axios.get('/list').then(response => {
       this.setState({ lists: response.data })
     })
