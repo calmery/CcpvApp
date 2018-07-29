@@ -8,7 +8,6 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
 import NotificationsNone from '@material-ui/icons/NotificationsNone'
-import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 
@@ -89,7 +88,7 @@ export class ListComponent extends Component {
           {this.state.contents.map((content, index) => {
             return (
               <ListItem button key={index} onClick={() => this.move(index)}>
-                
+
                 <ListItemText
                   primary={content.name}
                   secondary={content.query}
