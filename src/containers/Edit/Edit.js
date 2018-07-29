@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+
 import Button from '@material-ui/core/Button'
 
 import Dialog from '@material-ui/core/Dialog'
@@ -10,10 +12,9 @@ import { Header } from 'containers'
 import './Edit.css'
 import Contents from './Contents'
 
-import axios from 'axios'
-import { url } from 'constants/url'
+import axios from 'requests/axios'
 
-export class Edit extends Component {
+export class EditComponent extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -60,11 +61,20 @@ export class Edit extends Component {
   }
 
   componentWillMount() {
-    let id = window.location.search.substring(1).split('&')
-    id = id[0].split('=')[1]
-    axios.get(url + '/edit?id=' + id).then(response => {
-      this.setState({ data: response.data })
-    })
+    if (!this.props.location.state) {
+      this.props.history.push('/')
+      return
+    }
+
+    const id = this.props.location.state.id
+    axios
+      .get(`/list/${id}`)
+      .catch(() => {})
+      .then(response => {
+        if (response) {
+          this.setState({ data: response.data.lists_tweets })
+        }
+      })
   }
 
   cancel() {
@@ -119,3 +129,5 @@ export class Edit extends Component {
     )
   }
 }
+
+export const Edit = withRouter(EditComponent)
