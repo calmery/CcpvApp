@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+
 import './Search.css'
 
 import TextField from '@material-ui/core/TextField'
@@ -6,8 +8,9 @@ import Button from '@material-ui/core/Button'
 
 import { url } from 'constants/url'
 import axios from 'axios'
+import auth from 'requests/authentication'
 
-export class Search extends Component {
+export class SearchComponent extends Component {
   constructor(props) {
     super(props)
 
@@ -24,9 +27,15 @@ export class Search extends Component {
       .post(`${url}/list`, {
         name: this.state.name,
         query: this.state.query
+      }, {
+        headers: {
+          'X-Api-Key': auth.getApiKey()
+        }
       })
       .then(response => {
-        window.location.href = '/edit?id=' + response.data.id
+        this.props.history.push('/edit', {
+          id: response.data.id
+        })
       })
   }
   onChangeNameField(event) {
@@ -66,3 +75,5 @@ export class Search extends Component {
     )
   }
 }
+
+export const Search = withRouter(SearchComponent)
