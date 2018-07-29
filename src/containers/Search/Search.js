@@ -6,9 +6,7 @@ import './Search.css'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-import { url } from 'constants/url'
 import axios from 'requests/axios'
-import auth from 'requests/authentication'
 
 export class SearchComponent extends Component {
   constructor(props) {
