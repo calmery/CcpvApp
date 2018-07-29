@@ -70,7 +70,7 @@ export class EditComponent extends Component {
     const id = this.props.location.state.id
     axios
       .get(`/list/${id}`)
-      .catch((err) => {
+      .catch(err => {
         console.log(err)
       })
       .then(response => {
@@ -125,7 +125,7 @@ export class EditComponent extends Component {
           </Button>
           <Button
             color="inherit"
-            onClick={(() => this.save() /*this.handleClickOpen*/)}
+            onClick={() => this.save() /*this.handleClickOpen*/}
           >
             SAVE
           </Button>

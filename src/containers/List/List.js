@@ -22,20 +22,20 @@ export class ListComponentClass extends Component {
     this.state = {
       lists: [
         {
-          id:1,
-          created_at:'2018',
-          name:'sojo'
+          id: 1,
+          created_at: '2018',
+          name: 'sojo'
         },
         {
-          id:2,
-          created_at:'2018',
-          name:'kumamoto'
+          id: 2,
+          created_at: '2018',
+          name: 'kumamoto'
         },
         {
-          id:3,
-          created_at:'2018',
-          name:'gakuenn1'
-        },
+          id: 3,
+          created_at: '2018',
+          name: 'gakuenn1'
+        }
       ]
     }
   }
@@ -44,7 +44,7 @@ export class ListComponentClass extends Component {
     this.props.setTitle('List')
 
     axios
-      .get('/list')//自分のリストの一覧を返す
+      .get('/list') //自分のリストの一覧を返す
       .catch(() => {})
       .then(response => {
         // npm run test で落ちる
