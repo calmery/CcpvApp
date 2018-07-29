@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 import axios from 'axios'
+import { BehaviorSubject } from 'rxjs'
 
 import { local as LocalStorage } from 'constants/storage'
 import { url as BaseUrl, endpoints as Endpoints } from 'constants/url'
@@ -26,6 +27,8 @@ class Authentication {
 
     // API キーがあれば認証済みとして扱う
     this._isAuthenticated = this._apiKey !== null
+
+    this._emitter = new BehaviorSubject(this._isAuthenticated)
   }
 
   // 認証する
@@ -64,6 +67,7 @@ class Authentication {
 
       // 認証済みの状態にする
       this._isAuthenticated = true
+      this._emitter.next(this._isAuthenticated)
 
       return this._apiKey
     } catch (error) {
@@ -83,6 +87,7 @@ class Authentication {
     localStorage.removeItem(LocalStorage.apiKey, this._apiKey)
 
     this._isAuthenticated = false
+    this._emitter.next(this._isAuthenticated)
   }
 
   // Get
@@ -97,6 +102,10 @@ class Authentication {
 
   getUserName() {
     return this._userName
+  }
+
+  getEventListener() {
+    return this._emitter.asObservable()
   }
 }
 
