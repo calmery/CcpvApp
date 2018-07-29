@@ -1,23 +1,61 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
 import './List.css'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import IconButton from '@material-ui/core/IconButton'
-import DeleteIcon from '@material-ui/icons/Delete'
 import NotificationsNone from '@material-ui/icons/NotificationsNone'
-import Checkbox from '@material-ui/core/Checkbox'
 import Button from '@material-ui/core/Button'
 import AddIcon from '@material-ui/icons/Add'
 
 import { Header, SearchDialog } from 'containers'
 import { NotificationDialog } from 'components'
 
-export class ListComponent extends Component {
+import { get } from 'requests/axios'
+import auth from 'requests/authentication'
+
+export class ListComponentClass extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lists: []
+    }
+  }
+
   componentDidMount() {
     this.props.setTitle('List')
+
+    auth.getEventListener().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.loadList()
+      } else {
+        this.setState({ lists: [] })
+      }
+    })
+
+    if (auth.isAuthenticated()) {
+      this.loadList()
+    }
+  }
+
+  loadList() {
+    get('/list')
+      .catch(() => {})
+      .then(response => {
+        // npm run test で落ちる
+        if (response) {
+          this.setState({ lists: response.data })
+        }
+      })
+  }
+
+  edit(id) {
+    this.props.history.push('/edit', {
+      id
+    })
   }
 
   render() {
@@ -32,38 +70,43 @@ export class ListComponent extends Component {
             <NotificationsNone />
           </IconButton>
         </Header>
-        <Button
-          variant="fab"
-          color="primary"
-          aria-label="add"
-          className="button"
-          onClick={() => this.refs.search_dialog.toggle()}
-        >
-          <AddIcon />
-        </Button>
+        {(() => {
+          if (auth.isAuthenticated()) {
+            return (
+              <Button
+                variant="fab"
+                color="primary"
+                aria-label="add"
+                className="button"
+                onClick={() => this.refs.search_dialog.toggle()}
+              >
+                <AddIcon />
+              </Button>
+            )
+          }
+        })()}
         <NotificationDialog ref="notification_dialog" />
         <SearchDialog ref="search_dialog" />
         <List>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="001" secondary="July 20, 2014" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="002" secondary="July 20, 2014" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
+          {(() => {
+            return this.state.lists.map((list, index) => {
+              const date = new Date(list.created_at)
+
+              return (
+                <ListItem key={index} button onClick={() => this.edit(list.id)}>
+                  <ListItemText
+                    primary={list.name}
+                    secondary={`${date.getFullYear()}/${date.getMonth() +
+                      1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`}
+                  />
+                </ListItem>
+              )
+            })
+          })()}
         </List>
       </div>
     )
   }
 }
+
+export const ListComponent = withRouter(ListComponentClass)
