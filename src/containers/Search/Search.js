@@ -3,10 +3,10 @@ import './Search.css'
 
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import CircularProgress from '@material-ui/core/CircularProgress';
 
-import axios from 'axios'
 import { url } from 'constants/url'
+import axios from 'axios'
+
 export class Search extends Component {
   constructor(props) {
     super(props)
@@ -19,14 +19,14 @@ export class Search extends Component {
   }
 
   search() {
-    this.setState({ loading: true})
+    this.setState({ loading: true })
     axios
-      .post('https://quiet-plains-74935.herokuapp.com/search', {
+      .post(`${url}/list`, {
         name: this.state.name,
         query: this.state.query
       })
       .then(response => {
-        window. location.href='/edit?id='+response.data.id
+        window.location.href = '/edit?id=' + response.data.id
       })
   }
   onChangeNameField(event) {
