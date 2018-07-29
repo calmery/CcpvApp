@@ -91,6 +91,16 @@ export class EditComponent extends Component {
       })
   }
 
+  //ContentsとEditComponentのstate(isSafae)を同期させる
+  updateState(index) {
+    const array = this.state.data.slice()
+    console.log(this.state.data)
+    array[index].isSafe = !this.state.data[index].isSafe
+    this.setState({
+      data: array
+    })
+  }
+
   cancel() {
     console.log('Cancel')
     window.location.href = '/'
@@ -98,6 +108,7 @@ export class EditComponent extends Component {
 
   save() {
     console.log('Save')
+    console.log(this.state.data)
     //更新後のツイート情報を保存
   }
 
@@ -105,10 +116,14 @@ export class EditComponent extends Component {
     var contents = this.state.data.map((data, index) => {
       return (
         <Contents
+          index={index}
           name={data.name}
           date={data.date}
           text={data.text}
+          isSafe={data.isSafe}
           key={index}
+          change={() => this.updateState(index)}
+          // id={data.id}
           // name={data.list.name}
           // date={data.tweet.created_at}
           // text={data.tweet.text}
