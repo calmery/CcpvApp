@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 import { url } from 'constants/url'
-import axios from 'axios'
+import axios from 'requests/axios'
 import auth from 'requests/authentication'
 
 export class SearchComponent extends Component {
@@ -24,13 +24,9 @@ export class SearchComponent extends Component {
   search() {
     this.setState({ loading: true })
     axios
-      .post(`${url}/list`, {
+      .post(`/list`, {
         name: this.state.name,
         query: this.state.query
-      }, {
-        headers: {
-          'X-Api-Key': auth.getApiKey()
-        }
       })
       .then(response => {
         this.props.history.push('/edit', {
