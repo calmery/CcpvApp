@@ -39,15 +39,6 @@ export class SideMenu extends Component {
                   <ListItemText primary="Login" />
                 </ListItem>
               )
-            } else {
-              return (
-                <ListItem button onClick={() => auth.reset()}>
-                  <ListItemIcon>
-                    <AccountCircleIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Logout" />
-                </ListItem>
-              )
             }
           })()}
         </List>
