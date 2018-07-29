@@ -10,18 +10,24 @@ import Red from '@material-ui/core/colors/red'
 import Green from '@material-ui/core/colors/green'
 import BlockIcon from '@material-ui/icons/Block'
 
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  change: PropTypes.func
+}
+
 export default class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isSafe: true,
+      isSafe: this.props.isSafe,
       color: [Red[300], Green[100]]
     }
   }
 
   handleDangerClick = () => {
     this.setState({ isSafe: !this.state.isSafe })
-    console.log(this.state.isSafe)
+    return this.props.change(this.props.index)
   }
 
   render() {
@@ -51,3 +57,5 @@ export default class Contents extends React.Component {
     )
   }
 }
+
+Contents.propTypes = propTypes
