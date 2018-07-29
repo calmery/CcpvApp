@@ -22,31 +22,31 @@ export class EditComponent extends Component {
       data: [
         {
           id: 1,
-          username: 'taro',
+          name: 'taro',
           date: '2017/1/1',
           text: 'I am Taro',
-          dangerFlg: true
+          isSafe: true
         },
         {
           id: 2,
-          username: 'jiro',
+          name: 'jiro',
           date: '2017/3/1',
           text: 'I am jiro',
-          dangerFlg: true
+          isSafe: true
         },
         {
           id: 3,
-          username: 'たろう',
+          name: 'たろう',
           date: '2017/3/1',
           text: 'たろうです',
-          dangerFlg: true
+          isSafe: true
         },
         {
           id: 4,
-          username: 'じろう',
+          name: 'じろう',
           date: '2017/3/1',
           text: 'じろうです',
-          dangerFlg: true
+          isSafe: true
         }
       ]
     }
@@ -61,19 +61,33 @@ export class EditComponent extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props.location.state)
     if (!this.props.location.state) {
       this.props.history.push('/')
       return
     }
-
+    //this.props.history.pushの値を受け取ることができる
     const id = this.props.location.state.id
     axios
       .get(`/list/${id}`)
-      .catch(() => {})
+      .catch((err) => {
+        console.log(err)
+      })
       .then(response => {
         if (response) {
           this.setState({ data: response.data.lists_tweets })
         }
+        /*
+          id: number
+          list_id: number
+          tweet_id: number
+          is_safe: boolean
+          //Association
+          @BelongsTo(() => List)
+          list: List
+          @BelongsTo(() => Tweet)
+          tweet: Tweet
+        */
       })
   }
 
@@ -91,10 +105,15 @@ export class EditComponent extends Component {
     var contents = this.state.data.map((data, index) => {
       return (
         <Contents
-          username={data.username}
+          name={data.name}
           date={data.date}
           text={data.text}
           key={index}
+          // name={data.list.name}
+          // date={data.tweet.created_at}
+          // text={data.tweet.text}
+          // isSafe={data.is_safe}
+          // key={index}
         />
       )
     })
@@ -106,7 +125,7 @@ export class EditComponent extends Component {
           </Button>
           <Button
             color="inherit"
-            onClick={(() => this.save(), this.handleClickOpen)}
+            onClick={(() => this.save() /*this.handleClickOpen*/)}
           >
             SAVE
           </Button>

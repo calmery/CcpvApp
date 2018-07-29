@@ -14,14 +14,14 @@ export default class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dangerFlg: true,
+      isSafe: true,
       color: [Red[300], Green[100]]
     }
   }
 
   handleDangerClick = () => {
-    this.setState({ dangerFlg: !this.state.dangerFlg })
-    console.log(this.state.dangerFlg)
+    this.setState({ isSafe: !this.state.isSafe })
+    console.log(this.state.isSafe)
   }
 
   render() {
@@ -29,12 +29,12 @@ export default class Contents extends React.Component {
       <div style={{ margin: '15px 20px 0px 20px' }}>
         <Card
           style={{
-            backgroundColor: this.state.color[Number(this.state.dangerFlg)]
+            backgroundColor: this.state.color[Number(this.state.isSafe)]
           }}
         >
           <CardHeader
             avatar={<Avatar>R</Avatar>}
-            title={this.props.username}
+            title={this.props.name}
             subheader={this.props.date}
           />
           <CardContent>
