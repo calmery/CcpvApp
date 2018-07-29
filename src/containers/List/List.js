@@ -15,9 +15,22 @@ import AddIcon from '@material-ui/icons/Add'
 import { Header, SearchDialog } from 'containers'
 import { NotificationDialog } from 'components'
 
+import axios from 'requests/axios'
+
 export class ListComponent extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      lists: []
+    }
+  }
+
   componentDidMount() {
     this.props.setTitle('List')
+    axios.get('/list').then(response => {
+      this.setState({ lists: response.data })
+    })
   }
 
   render() {
@@ -44,24 +57,20 @@ export class ListComponent extends Component {
         <NotificationDialog ref="notification_dialog" />
         <SearchDialog ref="search_dialog" />
         <List>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="001" secondary="July 20, 2014" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
-          <ListItem button>
-            <Checkbox checked={true} />
-            <ListItemText primary="002" secondary="July 20, 2014" />
-            <ListItemSecondaryAction>
-              <IconButton aria-label="Delete">
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </ListItem>
+          {(() => {
+            return this.state.lists.map((list, index) => {
+              const date = new Date(list.created_at)
+
+              return (
+                <ListItem key={index} button>
+                  <ListItemText
+                    primary={list.name}
+                    secondary={`${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`}
+                  />
+                </ListItem>
+              )
+            })
+          })()}
         </List>
       </div>
     )
