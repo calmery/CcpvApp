@@ -7,6 +7,9 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListIcon from '@material-ui/icons/List'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+
+import auth from 'requests/authentication'
 
 export class SideMenu extends Component {
   render() {
@@ -25,6 +28,28 @@ export class SideMenu extends Component {
               <ListItemText primary="List" />
             </ListItem>
           </Link>
+          <Divider />
+          {(() => {
+            if (!auth.isAuthenticated()) {
+              return (
+                <ListItem button onClick={() => auth.authentication()}>
+                  <ListItemIcon>
+                    <AccountCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Login" />
+                </ListItem>
+              )
+            } else {
+              return (
+                <ListItem button onClick={() => auth.reset()}>
+                  <ListItemIcon>
+                    <AccountCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Logout" />
+                </ListItem>
+              )
+            }
+          })()}
         </List>
       </div>
     )
