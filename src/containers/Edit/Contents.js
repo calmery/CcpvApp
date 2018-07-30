@@ -20,13 +20,13 @@ export default class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isSafe: this.props.isSafe,
+      is_safe: this.props.is_safe,
       color: [Red[300], Green[100]]
     }
   }
 
   handleDangerClick = () => {
-    this.setState({ isSafe: !this.state.isSafe })
+    this.setState({ is_safe: !this.state.is_safe })
     return this.props.change(this.props.index)
   }
 
@@ -35,7 +35,7 @@ export default class Contents extends React.Component {
       <div style={{ margin: '15px 20px 0px 20px' }}>
         <Card
           style={{
-            backgroundColor: this.state.color[Number(this.state.isSafe)]
+            backgroundColor: this.state.color[Number(this.state.is_safe)]
           }}
         >
           <CardHeader

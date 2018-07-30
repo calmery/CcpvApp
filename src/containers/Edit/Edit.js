@@ -19,36 +19,7 @@ export class EditComponent extends Component {
     super(props)
     this.state = {
       open: false,
-      data: [
-        {
-          id: 1,
-          name: 'taro',
-          date: '2017/1/1',
-          text: 'I am Taro',
-          isSafe: true
-        },
-        {
-          id: 2,
-          name: 'jiro',
-          date: '2017/3/1',
-          text: 'I am jiro',
-          isSafe: true
-        },
-        {
-          id: 3,
-          name: 'たろう',
-          date: '2017/3/1',
-          text: 'たろうです',
-          isSafe: true
-        },
-        {
-          id: 4,
-          name: 'じろう',
-          date: '2017/3/1',
-          text: 'じろうです',
-          isSafe: true
-        }
-      ]
+      data: []
     }
   }
 
@@ -77,7 +48,7 @@ export class EditComponent extends Component {
         if (response) {
           this.setState({ data: response.data.lists_tweets })
         }
-        /*
+        /*==list_tweets==
           id: number
           list_id: number
           tweet_id: number
@@ -93,8 +64,7 @@ export class EditComponent extends Component {
 
   updateState(index) {
     const array = this.state.data.slice()
-    console.log(this.state.data)
-    array[index].isSafe = !this.state.data[index].isSafe
+    array[index].is_safe = !this.state.data[index].is_safe
     this.setState({
       data: array
     })
@@ -116,19 +86,13 @@ export class EditComponent extends Component {
       return (
         <Contents
           index={index}
-          name={data.name}
-          date={data.date}
-          text={data.text}
-          isSafe={data.isSafe}
+          name={data.tweet.user.name}
+          date={data.tweet.created_at}
+          text={data.tweet.text}
+          is_safe={data.is_safe}
           key={index}
-          change={() => this.updateState(index)}
-          // index={index}
-          // name={data.list.name}
-          // date={data.tweet.created_at}
-          // text={data.tweet.text}
-          // isSafe={data.is_safe}
-          // key={index}
-          // change={() => this.updateState(index)}
+          change={() => this.updateState(index)
+          }
         />
       )
     })
