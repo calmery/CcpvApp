@@ -91,8 +91,7 @@ export class EditComponent extends Component {
           text={data.tweet.text}
           is_safe={data.is_safe}
           key={index}
-          change={() => this.updateState(index)
-          }
+          change={() => this.updateState(index)}
         />
       )
     })
