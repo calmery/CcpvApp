@@ -10,18 +10,24 @@ import Red from '@material-ui/core/colors/red'
 import Green from '@material-ui/core/colors/green'
 import BlockIcon from '@material-ui/icons/Block'
 
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  change: PropTypes.func
+}
+
 export default class Contents extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dangerFlg: true,
+      is_safe: this.props.is_safe,
       color: [Red[300], Green[100]]
     }
   }
 
   handleDangerClick = () => {
-    this.setState({ dangerFlg: !this.state.dangerFlg })
-    console.log(this.state.dangerFlg)
+    this.setState({ is_safe: !this.state.is_safe })
+    return this.props.change(this.props.index)
   }
 
   render() {
@@ -29,12 +35,12 @@ export default class Contents extends React.Component {
       <div style={{ margin: '15px 20px 0px 20px' }}>
         <Card
           style={{
-            backgroundColor: this.state.color[Number(this.state.dangerFlg)]
+            backgroundColor: this.state.color[Number(this.state.is_safe)]
           }}
         >
           <CardHeader
             avatar={<Avatar>R</Avatar>}
-            title={this.props.username}
+            title={this.props.name}
             subheader={this.props.date}
           />
           <CardContent>
@@ -51,3 +57,5 @@ export default class Contents extends React.Component {
     )
   }
 }
+
+Contents.propTypes = propTypes
