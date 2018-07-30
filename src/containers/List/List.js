@@ -13,7 +13,8 @@ import AddIcon from '@material-ui/icons/Add'
 import { Header, SearchDialog } from 'containers'
 import { NotificationDialog } from 'components'
 
-import axios from 'requests/axios'
+import { get } from 'requests/axios'
+import auth from 'requests/authentication'
 
 export class ListComponentClass extends Component {
   constructor(props) {
@@ -27,8 +28,21 @@ export class ListComponentClass extends Component {
   componentDidMount() {
     this.props.setTitle('List')
 
-    axios
-      .get('/list')
+    auth.getEventListener().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.loadList()
+      } else {
+        this.setState({ lists: [] })
+      }
+    })
+
+    if (auth.isAuthenticated()) {
+      this.loadList()
+    }
+  }
+
+  loadList() {
+    get('/list')
       .catch(() => {})
       .then(response => {
         // npm run test で落ちる
@@ -56,15 +70,21 @@ export class ListComponentClass extends Component {
             <NotificationsNone />
           </IconButton>
         </Header>
-        <Button
-          variant="fab"
-          color="primary"
-          aria-label="add"
-          className="button"
-          onClick={() => this.refs.search_dialog.toggle()}
-        >
-          <AddIcon />
-        </Button>
+        {(() => {
+          if (auth.isAuthenticated()) {
+            return (
+              <Button
+                variant="fab"
+                color="primary"
+                aria-label="add"
+                className="button"
+                onClick={() => this.refs.search_dialog.toggle()}
+              >
+                <AddIcon />
+              </Button>
+            )
+          }
+        })()}
         <NotificationDialog ref="notification_dialog" />
         <SearchDialog ref="search_dialog" />
         <List>
