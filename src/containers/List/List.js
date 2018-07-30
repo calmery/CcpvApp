@@ -20,23 +20,7 @@ export class ListComponentClass extends Component {
     super(props)
 
     this.state = {
-      lists: [
-        {
-          id: 1,
-          created_at: '2018',
-          name: 'sojo'
-        },
-        {
-          id: 2,
-          created_at: '2018',
-          name: 'kumamoto'
-        },
-        {
-          id: 3,
-          created_at: '2018',
-          name: 'gakuenn1'
-        }
-      ]
+      lists: []
     }
   }
 
