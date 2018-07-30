@@ -12,7 +12,7 @@ import { Header } from 'containers'
 import './Edit.css'
 import Contents from './Contents'
 
-import axios from 'requests/axios'
+import { get, post } from 'requests/axios'
 
 export class EditComponent extends Component {
   constructor(props) {
@@ -32,34 +32,17 @@ export class EditComponent extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.location.state)
     if (!this.props.location.state) {
       this.props.history.push('/')
       return
     }
 
     const id = this.props.location.state.id
-    axios
-      .get(`/list/${id}`)
-      .catch(err => {
-        console.log(err)
-      })
-      .then(response => {
-        if (response) {
-          this.setState({ data: response.data.lists_tweets })
-        }
-        /*==list_tweets==
-          id: number
-          list_id: number
-          tweet_id: number
-          is_safe: boolean
-          //Association
-          @BelongsTo(() => List)
-          list: List
-          @BelongsTo(() => Tweet)
-          tweet: Tweet
-        */
-      })
+    get(`/list/${id}`).then(response => {
+      if (response) {
+        this.setState({ data: response.data.lists_tweets })
+      }
+    })
   }
 
   updateState(index) {
@@ -71,28 +54,25 @@ export class EditComponent extends Component {
   }
 
   cancel() {
-    console.log('Cancel')
-    window.location.href = '/'
+    this.props.history.push('/')
   }
 
   save() {
-    console.log('Save')
-    console.log(this.state.data)
     const data = this.state.data.map((data, index) => {
-          tweets: [{
-            id: data.tweet.id,
-            is_safe: data.is_safe
-          }]
-        })
-    axios
-      .post(`/list/${this.props.location.state.id}`, data)
-      .then(response => {
-        this.props.history.push('/list')
-      })
+      return {
+        id: data.tweet.id,
+        is_safe: data.is_safe
+      }
+    })
+    post(`/list/${this.props.location.state.id}`, {
+      tweets: data
+    }).then(response => {
+      this.props.history.push('/')
+    })
   }
 
   render() {
-    var contents = this.state.data.map((data, index) => {
+    const contents = this.state.data.map((data, index) => {
       return (
         <Contents
           index={index}
