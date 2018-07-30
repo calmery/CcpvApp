@@ -78,7 +78,17 @@ export class EditComponent extends Component {
   save() {
     console.log('Save')
     console.log(this.state.data)
-    //更新後のツイート情報を保存
+    const data = this.state.data.map((data, index) => {
+          tweets: [{
+            id: data.tweet.id,
+            is_safe: data.is_safe
+          }]
+        })
+    axios
+      .post(`/list/${this.props.location.state.id}`, data)
+      .then(response => {
+        this.props.history.push('/list')
+      })
   }
 
   render() {
