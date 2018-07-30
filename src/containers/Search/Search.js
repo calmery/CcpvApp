@@ -6,7 +6,7 @@ import './Search.css'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-import axios from 'requests/axios'
+import { post } from 'requests/axios'
 
 export class SearchComponent extends Component {
   constructor(props) {
@@ -21,16 +21,14 @@ export class SearchComponent extends Component {
 
   search() {
     this.setState({ loading: true })
-    axios
-      .post(`/list`, {
-        name: this.state.name,
-        query: this.state.query
+    post(`/list`, {
+      name: this.state.name,
+      query: this.state.query
+    }).then(response => {
+      this.props.history.push('/edit', {
+        id: response.data.id
       })
-      .then(response => {
-        this.props.history.push('/edit', {
-          id: response.data.id
-        })
-      })
+    })
   }
   onChangeNameField(event) {
     this.setState({ name: event.target.value })
