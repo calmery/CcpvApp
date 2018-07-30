@@ -66,7 +66,7 @@ export class EditComponent extends Component {
       this.props.history.push('/')
       return
     }
-    //this.props.history.pushの値を受け取ることができる
+
     const id = this.props.location.state.id
     axios
       .get(`/list/${id}`)
@@ -91,7 +91,6 @@ export class EditComponent extends Component {
       })
   }
 
-  //ContentsとEditComponentのstate(isSafae)を同期させる
   updateState(index) {
     const array = this.state.data.slice()
     console.log(this.state.data)
@@ -123,12 +122,13 @@ export class EditComponent extends Component {
           isSafe={data.isSafe}
           key={index}
           change={() => this.updateState(index)}
-          // id={data.id}
+          // index={index}
           // name={data.list.name}
           // date={data.tweet.created_at}
           // text={data.tweet.text}
           // isSafe={data.is_safe}
           // key={index}
+          // change={() => this.updateState(index)}
         />
       )
     })
