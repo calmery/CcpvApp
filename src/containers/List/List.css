@@ -1,9 +1,0 @@
-.List .button {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-}
-
-.List .Notifications {
-  flex-grow: 1;
-}

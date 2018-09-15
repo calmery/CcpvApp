@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/node:10.1.0
 
@@ -21,22 +21,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: npm run test
-
-      - persist_to_workspace:
-          root: ~/
-          paths: ./*
-
-  build:
-    docker:
-      - image: circleci/node:10.1.0
-
-    working_directory: ~/ccpv
-
-    steps:
-      - attach_workspace:
-          at: ~/
 
       - run: npm run build
 
@@ -61,16 +45,12 @@ jobs:
 workflows:
   version: 2
 
-  test-build-and-deploy:
+  build-and-deploy:
     jobs:
-      - test:
+      - build:
           filters:
             branches:
               ignore: gh-pages
-
-      - build:
-          requires:
-            - test
 
       - deploy:
           requires:
