@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 
 /**
  * Generated class for the TopPage page.
@@ -18,11 +18,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TopPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  private loading: Loading;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TopPage');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController
+  ) {}
+
+  /** 検索ワードを入力するプロンプトを表示する */
+  public openSearch() {
+    const prompt = this.alertCtrl.create({
+      title: '検索',
+      inputs: [{
+        name: 'name',
+        placeholder: '名前'
+      }, {
+        name: 'keyword',
+        placeholder: 'キーワード'
+      }],
+      buttons: [{
+        text: 'キャンセル',
+        role: 'cancel'
+      }, {
+        text: '検索',
+        handler: ({ name, keyword }) => {
+          this.loading = this.loadingCtrl.create();
+          this.loading.present();
+          console.log(name, keyword)
+          setTimeout(() => {
+            this.loading.dismiss();
+          }, 3000)
+        }
+      }]
+    });
+
+    prompt.present();
   }
 
 }
