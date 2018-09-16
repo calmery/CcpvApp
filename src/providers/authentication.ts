@@ -7,12 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { local as LocalStorage } from '../constants/storage';
 import { url as BaseUrl, endpoints as Endpoints } from '../constants/url';
 import * as config from '../constants/firebase';
-
-interface Authenticated {
-  id: number;
-  name: string;
-  api_key: string;
-};
+import { Authentication } from '../models';
 
 firebase.initializeApp(config);
 
@@ -64,7 +59,7 @@ export class AuthenticationProvider {
       this.accessToken = (response.credential as any).accessToken;
       this.accessTokenSecret = (response.credential as any).secret;
 
-      const authenticated = await this.http.post<Authenticated>(
+      const authenticated = await this.http.post<Authentication>(
         `${BaseUrl}${Endpoints.authentication}`,
         {
           firebase_id_token: this.firebaseIdToken,
@@ -102,6 +97,15 @@ export class AuthenticationProvider {
 
   public getObserver(): Observable<boolean> {
     return this.emitter.asObservable();
+  }
+
+  public requestHeaders() {
+    return {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Api-Key': this.apiKey
+      }
+    };
   }
 
   private setAuthenticateStatus(status: boolean) {
