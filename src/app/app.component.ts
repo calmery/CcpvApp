@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TopPage } from '../pages/top/top';
-import { SearchPage } from '../pages/search/search';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,8 +20,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Top', component: TopPage },
-      { title: 'Search', component: SearchPage },
+      { title: 'Top', component: TopPage }
     ];
 
   }

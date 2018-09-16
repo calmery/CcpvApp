@@ -4,28 +4,30 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { TopPage } from '../pages/top/top';
-import { SearchPage } from '../pages/search/search';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Menu
+
+import { MenuModule } from '../components/menu/menu.module';
+
 @NgModule({
   declarations: [
     MyApp,
-    TopPage,
-    SearchPage
+    TopPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
       mode: 'md'
-    })
+    }),
+    MenuModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TopPage,
-    SearchPage
+    TopPage
   ],
   providers: [
     StatusBar,
