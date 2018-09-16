@@ -11,5 +11,6 @@ export const url = (() => {
 })();
 
 export const endpoints = {
-  authentication: '/authentication'
+  authentication: '/authentication',
+  list: '/list'
 };

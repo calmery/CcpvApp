@@ -11,15 +11,18 @@
 
 
 <ion-content no-padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-grid fixed no-padding>
-    <ion-list>
-      <button ion-item>
+    <ion-list *ngIf="lists.length > 0">
+      <button ion-item *ngFor="let list of lists">
         <ion-icon name="logo-twitter" item-left></ion-icon>
         <ion-label>
-          Search Result
+          {{list.name}}
         </ion-label>
         <div item-content>
-          2018/09/16
+          {{list.updated_at}}
         </div>
       </button>
     </ion-list>
