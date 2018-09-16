@@ -1,7 +1,19 @@
 <ion-content>
   <ion-list>
-    <button menuClose ion-item>
+    <ion-list-header>
+      CCPV
+    </ion-list-header>
+    <button menuClose detail-none ion-item (click)="open('top')">
       トップ
+    </button>
+    <button menuClose ion-item>
+      設定
+    </button>
+    <button menuClose ion-item *ngIf="!isAuthenticated" (click)="signIn()">
+      ログイン
+    </button>
+    <button menuClose ion-item *ngIf="isAuthenticated" (click)="signOut()">
+      ログアウト
     </button>
   </ion-list>
 </ion-content>
