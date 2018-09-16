@@ -19,7 +19,7 @@ export class TopPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public authentication: Authentication,
+    private authentication: Authentication,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private changeDetectorRef: ChangeDetectorRef
