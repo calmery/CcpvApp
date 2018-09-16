@@ -77,6 +77,16 @@ export class ListPage {
     }
   }
 
+  public displayDate(list: List) {
+    const time = new Date(list.updated_at);
+
+    const year = time.getFullYear();
+    const month = time.getMonth() + 1;
+    const date = time.getDate();
+
+    return `${year}/${(month < 10 ? '0' : '') + month}/${(date < 10 ? '0' : '') + date}`;
+  }
+
   public open(list: List) {
     this.navCtrl.push('edit', list);
   }
