@@ -1,22 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, Input } from '@angular/core';
+import { Authentication } from '../../providers/authentication';
+import { LoadingController, Loading, ToastController, Nav } from 'ionic-angular';
 
-/**
- * Generated class for the MenuComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+import { TOAST_DURATION, TOAST_POSITION } from '../../constants/constants';
+
 @Component({
   selector: 'menu',
   templateUrl: 'menu.html'
 })
 export class MenuComponent {
+  @Input() public nav: Nav;
 
-  text: string;
+  public isAuthenticated: boolean;
+  private loading: Loading;
 
-  constructor() {
-    console.log('Hello MenuComponent Component');
-    this.text = 'Hello World';
+  constructor(
+    private authentication: Authentication,
+    private changeDetectorRef: ChangeDetectorRef,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
+  ) {}
+
+  public ngOnInit() {
+    this.authentication
+      .getObserver()
+      .subscribe(isAuthenticated => {
+        this.isAuthenticated = isAuthenticated;
+        this.changeDetectorRef.detectChanges();
+      });
+  }
+
+  public open(pageName: string) {
+    // 現在開いているページをメニューから開こうとした場合は移動しない
+    if (this.nav.getActive().id === pageName) {
+      return;
+    }
+
+    this.nav.push(pageName);
+  }
+
+  public async signIn() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+    await this.authentication.authentication();
+    this.loading.dismiss();
+
+    this.toastCtrl.create({
+      message: 'ログインしました',
+      duration: TOAST_DURATION,
+      position: TOAST_POSITION
+    }).present();
+  }
+
+  public signOut() {
+    this.authentication.reset();
+    this.toastCtrl.create({
+      message: 'ログアウトしました',
+      duration: TOAST_DURATION,
+      position: TOAST_POSITION
+    }).present();
   }
 
 }
