@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef, Input } from '@angular/core';
-import { Authentication } from '../../providers/authentication';
+import { AuthenticationProvider } from '../../providers/authentication';
 import { LoadingController, Loading, ToastController, Nav } from 'ionic-angular';
 
 import { TOAST_DURATION, TOAST_POSITION } from '../../constants/constants';
@@ -15,14 +15,14 @@ export class MenuComponent {
   private loading: Loading;
 
   constructor(
-    private authentication: Authentication,
+    private authenticationProvider: AuthenticationProvider,
     private changeDetectorRef: ChangeDetectorRef,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController
   ) {}
 
   public ngOnInit() {
-    this.authentication
+    this.authenticationProvider
       .getObserver()
       .subscribe(isAuthenticated => {
         this.isAuthenticated = isAuthenticated;
@@ -42,7 +42,7 @@ export class MenuComponent {
   public async signIn() {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
-    await this.authentication.authentication();
+    await this.authenticationProvider.authentication();
     this.loading.dismiss();
 
     this.toastCtrl.create({
@@ -53,7 +53,7 @@ export class MenuComponent {
   }
 
   public signOut() {
-    this.authentication.reset();
+    this.authenticationProvider.reset();
     this.toastCtrl.create({
       message: 'ログアウトしました',
       duration: TOAST_DURATION,

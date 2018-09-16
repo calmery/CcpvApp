@@ -4,15 +4,19 @@
       CCPV
     </ion-list-header>
     <button menuClose ion-item (click)="open('top')">
+      <ion-icon name="home" item-left></ion-icon>
       トップ
     </button>
     <button menuClose ion-item (click)="open('list')" *ngIf="isAuthenticated">
+      <ion-icon name="list" item-left></ion-icon>
       リスト
     </button>
     <button menuClose ion-item *ngIf="!isAuthenticated" (click)="signIn()">
+      <ion-icon name="log-in" item-left></ion-icon>
       ログイン
     </button>
     <button menuClose ion-item *ngIf="isAuthenticated" (click)="signOut()">
+      <ion-icon name="log-out" item-left></ion-icon>
       ログアウト
     </button>
   </ion-list>

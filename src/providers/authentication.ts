@@ -17,7 +17,7 @@ interface Authenticated {
 firebase.initializeApp(config);
 
 @Injectable()
-export class Authentication {
+export class AuthenticationProvider {
 
   // Firebase
 
