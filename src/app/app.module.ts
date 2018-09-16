@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { TopPage } from '../pages/top/top';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,8 +13,7 @@ import { MenuModule } from '../components/menu/menu.module';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TopPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -26,8 +24,7 @@ import { MenuModule } from '../components/menu/menu.module';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TopPage
+    MyApp
   ],
   providers: [
     StatusBar,
