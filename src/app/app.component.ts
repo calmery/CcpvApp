@@ -5,7 +5,7 @@ import { Nav, Platform } from 'ionic-angular';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
+  @ViewChild(Nav) navChild: Nav;
 
   // Segment of the root page
   public rootPage: string = 'top';

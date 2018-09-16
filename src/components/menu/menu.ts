@@ -9,7 +9,7 @@ import { TOAST_DURATION, TOAST_POSITION } from '../../constants/constants';
   templateUrl: 'menu.html'
 })
 export class MenuComponent {
-  @Input() public nav: Nav;
+  @Input() public navChild: Nav;
 
   public isAuthenticated: boolean;
   private loading: Loading;
@@ -32,11 +32,11 @@ export class MenuComponent {
 
   public open(pageName: string) {
     // 現在開いているページをメニューから開こうとした場合は移動しない
-    if (this.nav.getActive().id === pageName) {
+    if (this.navChild.getActive().id === pageName) {
       return;
     }
 
-    this.nav.push(pageName);
+    this.navChild.push(pageName);
   }
 
   public async signIn() {

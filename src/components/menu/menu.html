@@ -3,11 +3,11 @@
     <ion-list-header>
       CCPV
     </ion-list-header>
-    <button menuClose detail-none ion-item (click)="open('top')">
+    <button menuClose ion-item (click)="open('top')">
       トップ
     </button>
-    <button menuClose ion-item>
-      設定
+    <button menuClose ion-item (click)="open('list')" *ngIf="isAuthenticated">
+      リスト
     </button>
     <button menuClose ion-item *ngIf="!isAuthenticated" (click)="signIn()">
       ログイン
