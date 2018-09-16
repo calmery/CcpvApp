@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 
-/**
- * Generated class for the TopPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Authentication } from '../../providers/authentication';
 
 @IonicPage({
   name: 'top',
@@ -18,14 +13,26 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 })
 export class TopPage {
 
+  public isAuthenticated: boolean;
   private loading: Loading;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public authentication: Authentication,
     private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
+
+  public ionViewDidLoad() {
+    this.authentication
+      .getObserver()
+      .subscribe(isAuthenticated => {
+        this.isAuthenticated = isAuthenticated;
+        this.changeDetectorRef.detectChanges();
+      });
+  }
 
   /** 検索ワードを入力するプロンプトを表示する */
   public openSearch() {
