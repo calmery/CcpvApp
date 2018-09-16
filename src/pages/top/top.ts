@@ -53,7 +53,6 @@ export class TopPage {
         handler: ({ name, keyword }) => {
           this.loading = this.loadingCtrl.create();
           this.loading.present();
-          console.log(name, keyword)
           setTimeout(() => {
             this.loading.dismiss();
           }, 3000)

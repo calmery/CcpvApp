@@ -25,8 +25,7 @@ export class ListPage {
     private alertCtrl: AlertController,
     private authenticationProvider: AuthenticationProvider,
     private listProvider: ListProvider,
-    private loadingCtrl: LoadingController,
-    private changeDetectorRef: ChangeDetectorRef
+    private loadingCtrl: LoadingController
   ) {
     if (!authenticationProvider.isAuthenticated) {
       this.navCtrl.setRoot('top');
@@ -76,6 +75,10 @@ export class ListPage {
     } finally {
       this.loading.dismiss();
     }
+  }
+
+  public open(list: List) {
+    this.navCtrl.push('edit', list);
   }
 
   public async doRefresh(refresher) {
