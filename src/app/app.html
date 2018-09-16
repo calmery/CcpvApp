@@ -1,6 +1,8 @@
-<ion-menu [content]="content">
-  <menu></menu>
-</ion-menu>
+<ion-split-pane>
+  <ion-menu [content]="content">
+    <menu></menu>
+  </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content main swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>
