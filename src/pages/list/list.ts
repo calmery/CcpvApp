@@ -1,6 +1,8 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Authentication } from '../../providers/authentication';
+
+import { AuthenticationProvider } from '../../providers/authentication';
+import { ListProvider } from '../../providers/list';
 
 @IonicPage({
   name: 'list',
@@ -15,16 +17,17 @@ export class ListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private authentication: Authentication,
+    private authenticationProvider: AuthenticationProvider,
+    private listProvider: ListProvider,
     private changeDetectorRef: ChangeDetectorRef
   ) {
-    if (!authentication.isAuthenticated) {
+    if (!authenticationProvider.isAuthenticated) {
       this.navCtrl.setRoot('top');
     }
   }
 
   public ionViewDidLoad() {
-    this.authentication
+    this.authenticationProvider
       .getObserver()
       .subscribe(isAuthenticated => {
         if (!isAuthenticated) {

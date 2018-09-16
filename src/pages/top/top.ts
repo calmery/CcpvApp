@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 
-import { Authentication } from '../../providers/authentication';
+import { AuthenticationProvider } from '../../providers/authentication';
 
 @IonicPage({
   name: 'top',
@@ -19,14 +19,14 @@ export class TopPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private authentication: Authentication,
+    private authenticationProvider: AuthenticationProvider,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
   public ionViewDidLoad() {
-    this.authentication
+    this.authenticationProvider
       .getObserver()
       .subscribe(isAuthenticated => {
         this.isAuthenticated = isAuthenticated;

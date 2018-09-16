@@ -15,6 +15,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+body {
+  color: #3c3c3c;
+}
+
 .split-pane-visible > ion-menu {
   max-width: 304px !important;
 }
