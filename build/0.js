@@ -291,12 +291,14 @@ var EditPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tweet__ = __webpack_require__(695);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__media_media_module__ = __webpack_require__(696);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -307,7 +309,8 @@ var TweetModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [__WEBPACK_IMPORTED_MODULE_1__tweet__["a" /* TweetComponent */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_1__tweet__["a" /* TweetComponent */])
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_1__tweet__["a" /* TweetComponent */]),
+                __WEBPACK_IMPORTED_MODULE_3__media_media_module__["a" /* MediaModule */]
             ],
             exports: [__WEBPACK_IMPORTED_MODULE_1__tweet__["a" /* TweetComponent */]]
         })
@@ -370,7 +373,7 @@ var TweetComponent = /** @class */ (function () {
     ], TweetComponent.prototype, "callback", void 0);
     TweetComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'tweet',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/tweet/tweet.html"*/'<ion-card (click)="changeSafeStatus()">\n\n  <ion-item *ngIf="!isSafe">\n    <ion-avatar item-start>\n      <img src="{{user.profile_image_url}}">\n    </ion-avatar>\n    <h2>{{user.name}}</h2>\n    <p>@{{user.screen_name}}（{{user.id}}）</p>\n  </ion-item>\n\n  <!-- img src="img/advance-card-bttf.png" -->\n\n  <ion-card-content *ngIf="isSafe" class="ellipsis">\n    <ion-icon name="checkmark-circle"></ion-icon>\n    {{tweet.text}}\n  </ion-card-content>\n  <ion-card-content *ngIf="!isSafe">\n    {{tweet.text}}\n  </ion-card-content>\n\n  <ion-row *ngIf="!isSafe">\n    <ion-col>\n      <button ion-button icon-start clear small>\n        <ion-icon name="refresh"></ion-icon>\n        {{tweet.retweet_count}}\n      </button>\n      <button ion-button icon-start clear small>\n        <ion-icon name="heart"></ion-icon>\n        {{tweet.favorite_count}}\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button clear small float-right>\n        {{displayDate(tweet.created_at)}}\n      </button>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/tweet/tweet.html"*/
+            selector: 'tweet',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/tweet/tweet.html"*/'<ion-card (click)="changeSafeStatus()">\n\n  <ion-item *ngIf="!isSafe">\n    <ion-avatar item-start>\n      <img src="{{user.profile_image_url}}">\n    </ion-avatar>\n    <h2>{{user.name}}</h2>\n    <p>@{{user.screen_name}}（{{user.id}}）</p>\n  </ion-item>\n\n  <ion-card-content *ngIf="media.length && !isSafe">\n    <media [media]="media"></media>\n  </ion-card-content>\n\n  <ion-card-content *ngIf="isSafe" class="ellipsis">\n    <ion-icon name="checkmark-circle"></ion-icon>\n    {{tweet.text}}\n  </ion-card-content>\n  <ion-card-content *ngIf="!isSafe">\n    {{tweet.text}}\n  </ion-card-content>\n\n  <ion-row *ngIf="!isSafe">\n    <ion-col>\n      <button ion-button icon-start clear small>\n        <ion-icon name="refresh"></ion-icon>\n        {{tweet.retweet_count}}\n      </button>\n      <button ion-button icon-start clear small>\n        <ion-icon name="heart"></ion-icon>\n        {{tweet.favorite_count}}\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button clear small float-right>\n        {{displayDate(tweet.created_at)}}\n      </button>\n    </ion-col>\n  </ion-row>\n\n</ion-card>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/tweet/tweet.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TweetComponent);
@@ -378,6 +381,87 @@ var TweetComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=tweet.js.map
+
+/***/ }),
+
+/***/ 696:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MediaModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__media__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MediaModule = /** @class */ (function () {
+    function MediaModule() {
+    }
+    MediaModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__media__["a" /* MediaComponent */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_1__media__["a" /* MediaComponent */])
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__media__["a" /* MediaComponent */]]
+        })
+    ], MediaModule);
+    return MediaModule;
+}());
+
+//# sourceMappingURL=media.module.js.map
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MediaComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MediaComponent = /** @class */ (function () {
+    function MediaComponent() {
+        this.photos = [];
+    }
+    MediaComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.media.forEach(function (media) {
+            if (media.type === 'photo') {
+                _this.photos.push(media.media_url);
+            }
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Array)
+    ], MediaComponent.prototype, "media", void 0);
+    MediaComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'media',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/media/media.html"*/'<ion-grid no-padding *ngIf="photos.length < 3">\n  <ion-row>\n    <ion-col [style.background]="\'url(\' + photo + \')\'" [style.backgroundSize]="\'cover\'" *ngFor="let photo of photos"></ion-col>\n  </ion-row>\n</ion-grid>\n\n<ion-grid no-padding *ngIf="photos.length === 4">\n  <ion-row>\n    <ion-col [style.background]="\'url(\' + photos[0] + \')\'" [style.backgroundSize]="\'cover\'"></ion-col>\n    <ion-col [style.background]="\'url(\' + photos[1] + \')\'" [style.backgroundSize]="\'cover\'"></ion-col>\n  </ion-row>\n  <ion-row>\n    <ion-col [style.background]="\'url(\' + photos[2] + \')\'" [style.backgroundSize]="\'cover\'"></ion-col>\n    <ion-col [style.background]="\'url(\' + photos[3] + \')\'" [style.backgroundSize]="\'cover\'"></ion-col>\n  </ion-row>\n</ion-grid>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/media/media.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], MediaComponent);
+    return MediaComponent;
+}());
+
+//# sourceMappingURL=media.js.map
 
 /***/ })
 
