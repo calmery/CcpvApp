@@ -12,7 +12,9 @@ import { MenuModule } from '../components/menu/menu.module';
 
 import { AuthenticationProvider } from '../providers/authentication';
 import { ListProvider } from '../providers/list';
+import { MessageProvider } from '../providers/message';
 import { HttpClientModule } from '@angular/common/http';
+import { StatisticsProvider } from '../providers/statistics';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     AuthenticationProvider,
     ListProvider,
+    MessageProvider,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    StatisticsProvider,
   ]
 })
 export class AppModule {}

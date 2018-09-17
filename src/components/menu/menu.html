@@ -19,5 +19,16 @@
       <ion-icon name="log-out" item-left></ion-icon>
       ログアウト
     </button>
+    <ion-item-divider *ngIf="isAuthenticated && isAdmin">
+      管理者
+    </ion-item-divider>
+    <button menuClose ion-item (click)="open('statistics')" *ngIf="isAuthenticated && isAdmin">
+      <ion-icon name="pulse" item-left></ion-icon>
+      統計
+    </button>
+    <button menuClose ion-item (click)="open('messages')" *ngIf="isAuthenticated && isAdmin">
+      <ion-icon name="clipboard" item-left></ion-icon>
+      メッセージ
+    </button>
   </ion-list>
 </ion-content>

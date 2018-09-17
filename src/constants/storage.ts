@@ -1,5 +1,6 @@
 export const local = {
   apiKey: '_apiKey',
   userName: '_userName',
-  userId: '_userId'
+  userId: '_userId',
+  isAdmin: '_isAdmin',
 };

@@ -4,7 +4,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>トップ</ion-title>
+    <ion-title>メッセージ</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,8 +18,13 @@
     <div class="no-list" *ngIf="messages.length === 0">
       メッセージはありません
     </div>
-    <message [message]="message" *ngFor="let message of messages"></message>
+    <message [deleteMessage]="deleteMessage" [message]="message" *ngFor="let message of messages"></message>
   </ion-grid>
+  <ion-fab bottom right>
+    <button ion-fab color="light" (click)="addMessagePrompt()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
   <ion-infinite-scroll [style.display]="next === null ? 'none' : 'block'" (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>

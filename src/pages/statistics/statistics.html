@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>統計</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid fixed no-padding>
+    <ion-row>
+      <ion-col>Safe</ion-col>
+      <ion-col>{{safeCount}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>UnSafe</ion-col>
+      <ion-col>{{unsafeCount}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
