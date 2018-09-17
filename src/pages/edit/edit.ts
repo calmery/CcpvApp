@@ -82,7 +82,7 @@ export class EditPage {
       this.listsTweets.forEach(({ is_safe, tweet }) => {
         this.temporaryState[tweet.id.toString()] = is_safe;
       });
-    } catch(error) {
+    } catch (error) {
       await this.alertCtrl.create({
         title: 'リストの取得に失敗しました',
         buttons: [{
@@ -135,7 +135,7 @@ export class EditPage {
         title: '保存しました',
         buttons: ['閉じる']
       }).present();
-    } catch(error) {
+    } catch (error) {
       this.alertCtrl.create({
         title: '保存に失敗しました',
         buttons: [{

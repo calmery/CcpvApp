@@ -49,7 +49,7 @@ export class ListPage {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
       this.lists = await this.listProvider.getMyLists();
-    } catch(error) {
+    } catch (error) {
       await this.alertCtrl.create({
         title: 'リストの取得に失敗しました',
         buttons: [{
@@ -143,7 +143,7 @@ export class ListPage {
     try {
       await this.listProvider.new(name, query);
       isSucceeded = true;
-    } catch(error) {
+    } catch (error) {
       await this.alertCtrl.create({
         title: '検索に失敗しました',
         buttons: [{

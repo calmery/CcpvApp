@@ -22,7 +22,8 @@ export class ListProvider {
       ).toPromise();
 
       return lists;
-    } catch(error) {
+    } catch (error) {
+      (window as any).Raven.captureException(error);
       throw error;
     }
   }
@@ -37,7 +38,8 @@ export class ListProvider {
       ).toPromise();
 
       return response;
-    } catch(error) {
+    } catch (error) {
+      (window as any).Raven.captureException(error);
       throw error;
     }
   }
@@ -51,7 +53,8 @@ export class ListProvider {
       ).toPromise();
 
       return list;
-    } catch(error) {
+    } catch (error) {
+      (window as any).Raven.captureException(error);
       throw error;
     }
   }
@@ -64,7 +67,8 @@ export class ListProvider {
         { tweets: data },
         { ...this.authenticationProvider.requestHeaders() }
       ).toPromise();
-    } catch(error) {
+    } catch (error) {
+      (window as any).Raven.captureException(error);
       throw error;
     }
   }
