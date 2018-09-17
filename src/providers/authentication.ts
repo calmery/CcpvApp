@@ -81,7 +81,8 @@ export class AuthenticationProvider {
       this.setAuthenticateStatus(true);
 
       return this.apiKey;
-    } catch(error) {
+    } catch (error) {
+      (window as any).Raven.captureException(error);
       throw error;
     }
   }
