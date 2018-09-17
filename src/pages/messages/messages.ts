@@ -34,6 +34,13 @@ export class MessagesPage {
 
   public ionViewDidLoad() {
     this.getMessages();
+    this.authenticationProvider
+      .getObserver()
+      .subscribe(isAuthenticated => {
+        if (!isAuthenticated) {
+          this.navCtrl.setRoot('top');
+        }
+      });
   }
 
   public async getMessages() {

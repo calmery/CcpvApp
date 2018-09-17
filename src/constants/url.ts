@@ -14,5 +14,6 @@ export const endpoints = {
   authentication: '/authentication',
   list: '/list',
   messages: '/messages',
-  message: '/message'
+  message: '/message',
+  admin: '/admin'
 };
