@@ -26,6 +26,9 @@
         </div>
       </button>
     </ion-list>
+    <div class="no-list" *ngIf="lists.length === 0">
+      リストは作成されていません
+    </div>
   </ion-grid>
 
   <ion-fab bottom right>
