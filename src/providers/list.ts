@@ -42,8 +42,23 @@ export class ListProvider {
   }
 
   /** 投稿に紐づいているフラグを更新する */
-  public async post(id: number, updated: any) {
+  public async post(id: number, data: any) {
+    try {
+      console.log({
+        ...this.authenticationProvider.requestHeaders(),
+        params: {
+          tweets: data
+        }
+      })
 
+      await this.http.post(
+        `${BaseUrl}${Endpoints.list}/${id}`,
+        { tweets: data },
+        { ...this.authenticationProvider.requestHeaders() }
+      ).toPromise();
+    } catch(error) {
+      throw error;
+    }
   }
 
 }

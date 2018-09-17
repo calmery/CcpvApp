@@ -65,6 +65,9 @@ export class EditPage {
      * changeDetectorRef.detectChanges を呼び出してもうまく反映されなかった
      */
     this.temporaryState[id.toString()] = isSafe;
+
+    // 変更が加えられたため保存していない状態にする
+    this.isSaved = false;
   }
 
   /** リストを取得する */
@@ -111,6 +114,20 @@ export class EditPage {
     try {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
+
+      const array = [];
+
+      for (let key in this.temporaryState) {
+        array.push({
+          id: key,
+          is_safe: this.temporaryState[key]
+        });
+      }
+
+      await this.listProvider.post(
+        this.id,
+        array
+      );
 
       this.isSaved = true;
     } catch(error) {
