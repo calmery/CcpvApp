@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ionic-app-scripts serve",
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build && cpx CNAME www/",
+    "build": "NODE_ENV=production ionic-app-scripts build && cpx CNAME www/",
     "lint": "ionic-app-scripts lint",
     "deploy": "gh-pages -d www -m \"Updates\nCircleCI [skip ci]\""
   },
