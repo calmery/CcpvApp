@@ -25677,3 +25677,33 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
+
+body {
+  color: #3c3c3c;
+}
+
+.split-pane-visible > ion-menu {
+  max-width: 304px !important;
+}
+
+menu {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+tweet .ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+tweet .ellipsis ion-icon {
+  margin-right: 8px;
+  color: #7ED321;
+}
+
+page-list .no-list {
+  text-align: center;
+  margin-top: 16px;
+}
