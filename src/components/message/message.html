@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-card-header>
+    {{message.title}}
+  </ion-card-header>
+  <ion-card-content>
+    {{message.message}}
+  </ion-card-content>
+
+  <ion-row *ngIf="deleteMessage">
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="time"></ion-icon>
+        {{displayDate(message.created_at)}}
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button clear small float-right (click)="deleteMessage(message.id)">
+        削除する
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
