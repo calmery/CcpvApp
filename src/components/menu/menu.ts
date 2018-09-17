@@ -12,6 +12,8 @@ export class MenuComponent {
   @Input() public navChild: Nav;
 
   public isAuthenticated: boolean;
+  public isAdmin: boolean;
+
   private loading: Loading;
 
   constructor(
@@ -26,6 +28,7 @@ export class MenuComponent {
       .getObserver()
       .subscribe(isAuthenticated => {
         this.isAuthenticated = isAuthenticated;
+        this.isAdmin = this.authenticationProvider.isAdmin;
         this.changeDetectorRef.detectChanges();
       });
   }

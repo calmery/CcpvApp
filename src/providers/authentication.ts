@@ -32,6 +32,8 @@ export class AuthenticationProvider {
   public userId: number | null;
   public userName: string | null;
 
+  public isAdmin: boolean = false;
+
   // Flag
 
   public isAuthenticated: boolean = false;
@@ -41,6 +43,7 @@ export class AuthenticationProvider {
     this.apiKey = localStorage.getItem(LocalStorage.apiKey);
     this.userId = parseInt(localStorage.getItem(LocalStorage.userId));
     this.userName = localStorage.getItem(LocalStorage.userName);
+    this.isAdmin = localStorage.getItem(LocalStorage.isAdmin) === 'true';
     this.setAuthenticateStatus(this.apiKey !== null);
   }
 
@@ -71,11 +74,13 @@ export class AuthenticationProvider {
       this.userId = authenticated.id;
       this.userName = authenticated.name;
       this.apiKey = authenticated.api_key;
+      this.isAdmin = authenticated.is_admin;
 
       // 取得したキーを保存する
       localStorage.setItem(LocalStorage.userId, this.userId.toString());
       localStorage.setItem(LocalStorage.userName, this.userName);
       localStorage.setItem(LocalStorage.apiKey, this.apiKey);
+      localStorage.setItem(LocalStorage.isAdmin, this.isAdmin.toString());
 
       // 認証済みにする
       this.setAuthenticateStatus(true);
