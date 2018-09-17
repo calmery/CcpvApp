@@ -25707,3 +25707,13 @@ page-list .no-list {
   text-align: center;
   margin-top: 16px;
 }
+
+page-messages .no-list {
+  text-align: center;
+  margin-top: 16px;
+}
+
+page-top .no-list {
+  text-align: center;
+  margin-top: 16px;
+}

@@ -1,14 +1,15 @@
 webpackJsonp([2],{
 
-/***/ 685:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListPageModule", function() { return ListPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessagesPageModule", function() { return MessagesPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__list__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__messages__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_message_message_module__ = __webpack_require__(691);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +19,122 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ListPageModule = /** @class */ (function () {
-    function ListPageModule() {
+
+var MessagesPageModule = /** @class */ (function () {
+    function MessagesPageModule() {
     }
-    ListPageModule = __decorate([
+    MessagesPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_2__messages__["a" /* MessagesPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__list__["a" /* ListPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__messages__["a" /* MessagesPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_message_message_module__["a" /* MessageModule */]
             ],
         })
-    ], ListPageModule);
-    return ListPageModule;
+    ], MessagesPageModule);
+    return MessagesPageModule;
 }());
 
-//# sourceMappingURL=list.module.js.map
+//# sourceMappingURL=messages.module.js.map
 
 /***/ }),
 
-/***/ 690:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_authentication__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_list__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MessageModule = /** @class */ (function () {
+    function MessageModule() {
+    }
+    MessageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__message__["a" /* MessageComponent */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_1__message__["a" /* MessageComponent */])
+            ],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__message__["a" /* MessageComponent */]]
+        })
+    ], MessageModule);
+    return MessageModule;
+}());
+
+//# sourceMappingURL=message.module.js.map
+
+/***/ }),
+
+/***/ 692:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MessageComponent = /** @class */ (function () {
+    function MessageComponent() {
+    }
+    MessageComponent.prototype.displayDate = function (created_at) {
+        var time = new Date(created_at);
+        var year = time.getFullYear();
+        var month = time.getMonth() + 1;
+        var date = time.getDate();
+        var hours = time.getHours();
+        var minutes = time.getMinutes();
+        return year + "/" + ((month < 10 ? '0' : '') + month) + "/" + ((date < 10 ? '0' : '') + date) + " " + hours + ":" + minutes;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], MessageComponent.prototype, "message", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], MessageComponent.prototype, "deleteMessage", void 0);
+    MessageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'message',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/message/message.html"*/'<ion-card>\n  <ion-card-header>\n    {{message.title}}\n  </ion-card-header>\n  <ion-card-content>\n    {{message.message}}\n  </ion-card-content>\n\n  <ion-row *ngIf="deleteMessage">\n    <ion-col>\n      <button ion-button icon-start clear small>\n        <ion-icon name="time"></ion-icon>\n        {{displayDate(message.created_at)}}\n      </button>\n    </ion-col>\n    <ion-col>\n      <button ion-button clear small float-right (click)="deleteMessage(message.id)">\n        削除する\n      </button>\n    </ion-col>\n  </ion-row>\n</ion-card>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/message/message.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], MessageComponent);
+    return MessageComponent;
+}());
+
+//# sourceMappingURL=message.js.map
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessagesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_message__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_authentication__ = __webpack_require__(45);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,21 +183,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var ListPage = /** @class */ (function () {
-    function ListPage(navCtrl, navParams, alertCtrl, authenticationProvider, listProvider, loadingCtrl) {
+var MessagesPage = /** @class */ (function () {
+    function MessagesPage(navCtrl, navParams, alertCtrl, loadingCtrl, messageProvider, authenticationProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
-        this.authenticationProvider = authenticationProvider;
-        this.listProvider = listProvider;
         this.loadingCtrl = loadingCtrl;
-        this.lists = [];
-        if (!authenticationProvider.isAuthenticated) {
+        this.messageProvider = messageProvider;
+        this.authenticationProvider = authenticationProvider;
+        this.messages = [];
+        this.next = null;
+        this.deleteMessage = this._deleteMessage.bind(this);
+        if (!this.authenticationProvider.isAuthenticated || !this.authenticationProvider.isAdmin) {
             this.navCtrl.setRoot('top');
         }
     }
-    ListPage.prototype.ionViewDidLoad = function () {
+    MessagesPage.prototype.ionViewDidLoad = function () {
         var _this = this;
+        this.getMessages();
         this.authenticationProvider
             .getObserver()
             .subscribe(function (isAuthenticated) {
@@ -117,72 +208,71 @@ var ListPage = /** @class */ (function () {
                 _this.navCtrl.setRoot('top');
             }
         });
-        this.getMyLists();
     };
-    ListPage.prototype.getMyLists = function () {
+    MessagesPage.prototype.getMessages = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var _a, error_1;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var response, _1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
                     case 0:
-                        _b.trys.push([0, 2, 4, 5]);
-                        this.loading = this.loadingCtrl.create();
-                        this.loading.present();
-                        _a = this;
-                        return [4 /*yield*/, this.listProvider.getMyLists()];
+                        _a.trys.push([0, 2, , 4]);
+                        return [4 /*yield*/, this.messageProvider.get()];
                     case 1:
-                        _a.lists = _b.sent();
-                        return [3 /*break*/, 5];
+                        response = _a.sent();
+                        this.messages = response.messages;
+                        this.next = response.next;
+                        return [3 /*break*/, 4];
                     case 2:
-                        error_1 = _b.sent();
+                        _1 = _a.sent();
                         return [4 /*yield*/, this.alertCtrl.create({
-                                title: 'リストの取得に失敗しました',
-                                buttons: [{
-                                        text: 'キャンセル',
-                                        role: 'cancel',
-                                        handler: function () {
-                                            // どこかのページから移動してきた場合はそのページに戻る
-                                            if (_this.navCtrl.length() > 1) {
-                                                _this.navCtrl.pop();
-                                                return;
-                                            }
-                                            // 直接このページを開いている場合はトップページに戻る
-                                            _this.navCtrl.setRoot('top');
-                                        }
-                                    }, {
-                                        text: '再試行',
-                                        handler: function () {
-                                            _this.getMyLists();
-                                        }
-                                    }]
+                                title: 'メッセージの取得に失敗しました',
+                                buttons: ['OK']
                             }).present()];
                     case 3:
-                        _b.sent();
-                        return [3 /*break*/, 5];
-                    case 4:
-                        this.loading.dismiss();
-                        return [7 /*endfinally*/];
-                    case 5: return [2 /*return*/];
+                        _a.sent();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
     };
-    ListPage.prototype.displayDate = function (list) {
-        var time = new Date(list.updated_at);
-        var year = time.getFullYear();
-        var month = time.getMonth() + 1;
-        var date = time.getDate();
-        return year + "/" + ((month < 10 ? '0' : '') + month) + "/" + ((date < 10 ? '0' : '') + date);
+    /** 新規メッセージを入力するプロンプトを表示する */
+    MessagesPage.prototype.addMessagePrompt = function () {
+        var _this = this;
+        var prompt = this.alertCtrl.create({
+            title: 'メッセージ',
+            inputs: [{
+                    name: 'title',
+                    placeholder: 'タイトル'
+                }, {
+                    name: 'message',
+                    placeholder: 'メッセージ'
+                }],
+            buttons: [{
+                    text: 'キャンセル',
+                    role: 'cancel'
+                }, {
+                    text: '検索',
+                    handler: function (_a) {
+                        var title = _a.title, message = _a.message;
+                        if (title === '' || message === '') {
+                            _this.alertCtrl.create({
+                                title: 'タイトル，メッセージは必ず入力する必要があります',
+                                buttons: ['OK']
+                            }).present();
+                            return;
+                        }
+                        _this.addMessage(title, message);
+                    }
+                }]
+        });
+        prompt.present();
     };
-    ListPage.prototype.open = function (list) {
-        this.navCtrl.push('edit', list);
-    };
-    ListPage.prototype.doRefresh = function (refresher) {
+    MessagesPage.prototype.doRefresh = function (refresher) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.getMyLists()];
+                    case 0: return [4 /*yield*/, this.getMessages()];
                     case 1:
                         _a.sent();
                         refresher.complete();
@@ -191,104 +281,156 @@ var ListPage = /** @class */ (function () {
             });
         });
     };
-    /** 検索ワードを入力するプロンプトを表示する */
-    ListPage.prototype.openSearch = function () {
-        var _this = this;
-        var prompt = this.alertCtrl.create({
-            title: '検索',
-            inputs: [{
-                    name: 'name',
-                    placeholder: '名前'
-                }, {
-                    name: 'query',
-                    placeholder: 'キーワード'
-                }],
-            buttons: [{
-                    text: 'キャンセル',
-                    role: 'cancel'
-                }, {
-                    text: '検索',
-                    handler: function (_a) {
-                        var name = _a.name, query = _a.query;
-                        _this.createList(name, query);
-                    }
-                }]
-        });
-        prompt.present();
-    };
-    /** 新規リストを作成する */
-    ListPage.prototype.createList = function (name, query) {
+    MessagesPage.prototype.doInfinite = function (infiniteScroll) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            var isSucceeded, error_2;
+            var response;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.loading = this.loadingCtrl.create();
-                        this.loading.present();
-                        if (!(name === '' || query === '')) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.alertCtrl.create({
-                                title: '検索できませんでした',
-                                message: '名前，またキーワードは少なくとも 1 文字以上である必要があります',
-                                buttons: ['閉じる']
-                            }).present()];
+                        if (this.next === null) {
+                            infiniteScroll.complete();
+                            return [2 /*return*/];
+                        }
+                        return [4 /*yield*/, this.messageProvider.get(this.next)];
+                    case 1:
+                        response = _a.sent();
+                        this.messages = this.messages.concat(response.messages);
+                        this.next = response.next || null;
+                        infiniteScroll.complete();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /** 指定されたメッセージを削除するか確認する */
+    MessagesPage.prototype._deleteMessage = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertCtrl.create({
+                            title: 'このメッセージを削除しますか？',
+                            buttons: [{
+                                    text: 'キャンセル',
+                                    role: 'cancel'
+                                }, {
+                                    text: '削除する',
+                                    handler: function () {
+                                        _this.delete(id);
+                                    }
+                                }]
+                        }).present()];
                     case 1:
                         _a.sent();
-                        this.loading.dismiss();
                         return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /** 指定されたメッセージ ID のメッセージを削除する */
+    MessagesPage.prototype.delete = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var loading, _2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        loading = this.loadingCtrl.create();
+                        loading.present();
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 4, , 6]);
+                        return [4 /*yield*/, this.messageProvider.delete(id)];
                     case 2:
-                        isSucceeded = false;
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 7]);
-                        return [4 /*yield*/, this.listProvider.new(name, query)];
-                    case 4:
                         _a.sent();
-                        isSucceeded = true;
-                        return [3 /*break*/, 7];
-                    case 5:
-                        error_2 = _a.sent();
                         return [4 /*yield*/, this.alertCtrl.create({
-                                title: '検索に失敗しました',
+                                title: '削除しました',
+                                buttons: ['OK']
+                            }).present()];
+                    case 3:
+                        _a.sent();
+                        this.getMessages();
+                        return [3 /*break*/, 6];
+                    case 4:
+                        _2 = _a.sent();
+                        return [4 /*yield*/, this.alertCtrl.create({
+                                title: 'メッセージの削除に失敗しました',
                                 buttons: [{
                                         text: 'キャンセル',
                                         role: 'cancel'
                                     }, {
                                         text: '再試行',
                                         handler: function () {
-                                            _this.createList(name, query);
+                                            _this.delete(id);
                                         }
                                     }]
                             }).present()];
-                    case 6:
+                    case 5:
                         _a.sent();
-                        return [3 /*break*/, 7];
-                    case 7:
-                        this.loading.dismiss();
-                        if (isSucceeded) {
-                            // リストを再取得する
-                            this.getMyLists();
-                        }
+                        return [3 /*break*/, 6];
+                    case 6:
+                        loading.dismiss();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    ListPage = __decorate([
+    MessagesPage.prototype.addMessage = function (title, message) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var loading, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        loading = this.loadingCtrl.create();
+                        loading.present();
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 5]);
+                        return [4 /*yield*/, this.messageProvider.post(title, message)];
+                    case 2:
+                        _a.sent();
+                        this.getMessages();
+                        return [3 /*break*/, 5];
+                    case 3:
+                        error_1 = _a.sent();
+                        return [4 /*yield*/, this.alertCtrl.create({
+                                title: 'メッセージの作成に失敗しました',
+                                buttons: [{
+                                        text: 'キャンセル',
+                                        role: 'cancel'
+                                    }, {
+                                        text: '再試行',
+                                        handler: function () {
+                                            _this.addMessage(title, message);
+                                        }
+                                    }]
+                            }).present()];
+                    case 4:
+                        _a.sent();
+                        return [3 /*break*/, 5];
+                    case 5:
+                        loading.dismiss();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MessagesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"/home/circleci/ccpv/src/pages/list/list.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>リスト</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n  <ion-grid fixed no-padding>\n    <ion-list *ngIf="lists.length > 0">\n      <button ion-item *ngFor="let list of lists" (click)="open(list)">\n        <ion-icon name="logo-twitter" item-left></ion-icon>\n        <ion-label>\n          {{list.name}}\n        </ion-label>\n        <div item-content>\n          {{displayDate(list)}}\n        </div>\n      </button>\n    </ion-list>\n    <div class="no-list" *ngIf="lists.length === 0">\n      リストは作成されていません\n    </div>\n  </ion-grid>\n\n  <ion-fab bottom right>\n    <button ion-fab color="light" (click)="openSearch()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/circleci/ccpv/src/pages/list/list.html"*/,
+            selector: 'page-messages',template:/*ion-inline-start:"/home/circleci/ccpv/src/pages/messages/messages.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>メッセージ</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content no-padding>\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n  <ion-grid fixed no-padding>\n    <div class="no-list" *ngIf="messages.length === 0">\n      メッセージはありません\n    </div>\n    <message [deleteMessage]="deleteMessage" [message]="message" *ngFor="let message of messages"></message>\n  </ion-grid>\n  <ion-fab bottom right>\n    <button ion-fab color="light" (click)="addMessagePrompt()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <ion-infinite-scroll [style.display]="next === null ? \'none\' : \'block\'" (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"/home/circleci/ccpv/src/pages/messages/messages.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_authentication__["a" /* AuthenticationProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_list__["a" /* ListProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
-    ], ListPage);
-    return ListPage;
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_message__["a" /* MessageProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_authentication__["a" /* AuthenticationProvider */]])
+    ], MessagesPage);
+    return MessagesPage;
 }());
 
-//# sourceMappingURL=list.js.map
+//# sourceMappingURL=messages.js.map
 
 /***/ })
 

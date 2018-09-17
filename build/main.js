@@ -1,6 +1,6 @@
-webpackJsonp([3],{
+webpackJsonp([5],{
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,24 +13,32 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 164;
+webpackEmptyAsyncContext.id = 165;
 
 /***/ }),
 
-/***/ 208:
+/***/ 209:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/edit/edit.module": [
-		684,
+		686,
 		0
 	],
 	"../pages/list/list.module": [
-		685,
+		687,
+		4
+	],
+	"../pages/messages/messages.module": [
+		688,
 		2
 	],
+	"../pages/statistics/statistics.module": [
+		689,
+		3
+	],
 	"../pages/top/top.module": [
-		686,
+		690,
 		1
 	]
 };
@@ -45,30 +53,8 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 208;
+webpackAsyncContext.id = 209;
 module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 211:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return url; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return endpoints; });
-var url = (function () {
-    // Production
-    if (true) {
-        return 'https://ccpv.herokuapp.com';
-    }
-    // Development
-    return 'http://localhost:8000';
-})();
-var endpoints = {
-    authentication: '/authentication',
-    list: '/list'
-};
-//# sourceMappingURL=url.js.map
 
 /***/ }),
 
@@ -77,10 +63,10 @@ var endpoints = {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_url__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_url__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication__ = __webpack_require__(45);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -242,9 +228,263 @@ var ListProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_url__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication__ = __webpack_require__(45);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var MessageProvider = /** @class */ (function () {
+    function MessageProvider(http, authenticationProvider) {
+        this.http = http;
+        this.authenticationProvider = authenticationProvider;
+    }
+    /** メッセージのリストを取得する */
+    MessageProvider.prototype.get = function (next) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, response, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        url = "" + __WEBPACK_IMPORTED_MODULE_2__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_2__constants_url__["a" /* endpoints */].messages + (next === undefined ? '' : "?start=" + next);
+                        return [4 /*yield*/, this.http.get(url).toPromise()];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                    case 2:
+                        error_1 = _a.sent();
+                        window.Raven.captureException(error_1);
+                        throw error_1;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /** Only Admin: トップページに表示されるメッセージを投稿する */
+    MessageProvider.prototype.post = function (title, message) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        if (!this.authenticationProvider.isAdmin) {
+                            throw new Error();
+                        }
+                        return [4 /*yield*/, this.http.post("" + __WEBPACK_IMPORTED_MODULE_2__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_2__constants_url__["a" /* endpoints */].message, { title: title, message: message }, __assign({}, this.authenticationProvider.requestHeaders())).toPromise()];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                    case 2:
+                        error_2 = _a.sent();
+                        window.Raven.captureException(error_2);
+                        throw error_2;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /** Only Admin: トップページに表示されるメッセージを削除する */
+    MessageProvider.prototype.delete = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var error_3;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        if (!this.authenticationProvider.isAdmin) {
+                            throw new Error();
+                        }
+                        return [4 /*yield*/, this.http.delete("" + __WEBPACK_IMPORTED_MODULE_2__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_2__constants_url__["a" /* endpoints */].message + "/" + id, __assign({}, this.authenticationProvider.requestHeaders())).toPromise()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                    case 2:
+                        error_3 = _a.sent();
+                        window.Raven.captureException(error_3);
+                        throw error_3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    MessageProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__authentication__["a" /* AuthenticationProvider */]])
+    ], MessageProvider);
+    return MessageProvider;
+}());
+
+//# sourceMappingURL=message.js.map
+
+/***/ }),
+
+/***/ 343:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatisticsProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__constants_url__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication__ = __webpack_require__(45);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+var StatisticsProvider = /** @class */ (function () {
+    function StatisticsProvider(http, authenticationProvider) {
+        this.http = http;
+        this.authenticationProvider = authenticationProvider;
+    }
+    StatisticsProvider.prototype.getSafeAndUnSafeCount = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.http.get("" + __WEBPACK_IMPORTED_MODULE_2__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_2__constants_url__["a" /* endpoints */].admin, __assign({}, this.authenticationProvider.requestHeaders())).toPromise()];
+                    case 1:
+                        response = _a.sent();
+                        return [2 /*return*/, response];
+                    case 2:
+                        error_1 = _a.sent();
+                        window.Raven.captureException(error_1);
+                        throw error_1;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    StatisticsProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
+            __WEBPACK_IMPORTED_MODULE_3__authentication__["a" /* AuthenticationProvider */]])
+    ], StatisticsProvider);
+    return StatisticsProvider;
+}());
+
+//# sourceMappingURL=statistics.js.map
+
+/***/ }),
+
+/***/ 344:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(349);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -252,19 +492,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 347:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(680);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_menu_menu_module__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_menu_menu_module__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_authentication__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_list__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common_http__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_message__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_statistics__ = __webpack_require__(343);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -281,6 +523,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -291,13 +535,15 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
                     mode: 'md'
                 }, {
                     links: [
                         { loadChildren: '../pages/edit/edit.module#EditPageModule', name: 'edit', segment: 'edit/:id', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list/list.module#ListPageModule', name: 'list', segment: 'list', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/messages/messages.module#MessagesPageModule', name: 'messages', segment: 'messages', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/statistics/statistics.module#StatisticsPageModule', name: 'statistics', segment: 'statistics', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/top/top.module#TopPageModule', name: 'top', segment: 'top', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -310,7 +556,9 @@ var AppModule = /** @class */ (function () {
             providers: [
                 __WEBPACK_IMPORTED_MODULE_5__providers_authentication__["a" /* AuthenticationProvider */],
                 __WEBPACK_IMPORTED_MODULE_6__providers_list__["a" /* ListProvider */],
+                __WEBPACK_IMPORTED_MODULE_7__providers_message__["a" /* MessageProvider */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_9__providers_statistics__["a" /* StatisticsProvider */],
             ]
         })
     ], AppModule);
@@ -321,7 +569,177 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 661:
+/***/ 45:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__constants_storage__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__constants_url__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__constants_firebase__ = __webpack_require__(664);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_2_firebase___default.a.initializeApp(__WEBPACK_IMPORTED_MODULE_6__constants_firebase__);
+var AuthenticationProvider = /** @class */ (function () {
+    function AuthenticationProvider(http) {
+        this.http = http;
+        // Firebase
+        this.firebase = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a;
+        this.provider = new __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.auth.TwitterAuthProvider();
+        this.firebaseIdToken = null;
+        this.accessToken = null;
+        this.accessTokenSecret = null;
+        this.isAdmin = false;
+        // Flag
+        this.isAuthenticated = false;
+        this.emitter = new __WEBPACK_IMPORTED_MODULE_3_rxjs__["BehaviorSubject"](this.isAuthenticated);
+        this.apiKey = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey);
+        this.userId = parseInt(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId));
+        this.userName = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName);
+        this.isAdmin = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].isAdmin) === 'true';
+        this.setAuthenticateStatus(this.apiKey !== null);
+    }
+    AuthenticationProvider.prototype.authentication = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, _a, authenticated, error_1;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        if (this.isAuthenticated) {
+                            return [2 /*return*/, this.apiKey];
+                        }
+                        _b.label = 1;
+                    case 1:
+                        _b.trys.push([1, 5, , 6]);
+                        return [4 /*yield*/, this.firebase
+                                .auth()
+                                .signInWithPopup(this.provider)];
+                    case 2:
+                        response = _b.sent();
+                        _a = this;
+                        return [4 /*yield*/, response.user.getIdToken()];
+                    case 3:
+                        _a.firebaseIdToken = _b.sent();
+                        // any ではなく TwitterCredential を使うべきだが参照できないので any を使用する
+                        this.accessToken = response.credential.accessToken;
+                        this.accessTokenSecret = response.credential.secret;
+                        return [4 /*yield*/, this.http.post("" + __WEBPACK_IMPORTED_MODULE_5__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_5__constants_url__["a" /* endpoints */].authentication, {
+                                firebase_id_token: this.firebaseIdToken,
+                                access_token: this.accessToken,
+                                access_token_secret: this.accessTokenSecret
+                            }).toPromise()];
+                    case 4:
+                        authenticated = _b.sent();
+                        this.userId = authenticated.id;
+                        this.userName = authenticated.name;
+                        this.apiKey = authenticated.api_key;
+                        this.isAdmin = authenticated.is_admin;
+                        // 取得したキーを保存する
+                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId, this.userId.toString());
+                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName, this.userName);
+                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey, this.apiKey);
+                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].isAdmin, this.isAdmin.toString());
+                        // 認証済みにする
+                        this.setAuthenticateStatus(true);
+                        return [2 /*return*/, this.apiKey];
+                    case 5:
+                        error_1 = _b.sent();
+                        window.Raven.captureException(error_1);
+                        throw error_1;
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /** ユーザデータを削除する */
+    AuthenticationProvider.prototype.reset = function () {
+        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId);
+        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName);
+        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey);
+        this.setAuthenticateStatus(false);
+    };
+    AuthenticationProvider.prototype.getObserver = function () {
+        return this.emitter.asObservable();
+    };
+    AuthenticationProvider.prototype.requestHeaders = function () {
+        return {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Api-Key': this.apiKey
+            }
+        };
+    };
+    AuthenticationProvider.prototype.setAuthenticateStatus = function (status) {
+        this.isAuthenticated = status;
+        this.emitter.next(this.isAuthenticated);
+    };
+    AuthenticationProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], AuthenticationProvider);
+    return AuthenticationProvider;
+}());
+
+//# sourceMappingURL=authentication.js.map
+
+/***/ }),
+
+/***/ 663:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -329,13 +747,14 @@ var AppModule = /** @class */ (function () {
 var local = {
     apiKey: '_apiKey',
     userName: '_userName',
-    userId: '_userId'
+    userId: '_userId',
+    isAdmin: '_isAdmin',
 };
 //# sourceMappingURL=storage.js.map
 
 /***/ }),
 
-/***/ 662:
+/***/ 664:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -352,13 +771,13 @@ var storageBucket = 'ccpvapp.appspot.com';
 
 /***/ }),
 
-/***/ 680:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(65);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -440,14 +859,14 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 683:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__menu__ = __webpack_require__(682);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__menu__ = __webpack_require__(684);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -476,15 +895,15 @@ var MenuModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 682:
+/***/ 684:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_authentication__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants_constants__ = __webpack_require__(683);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_authentication__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__constants_constants__ = __webpack_require__(685);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -546,6 +965,7 @@ var MenuComponent = /** @class */ (function () {
             .getObserver()
             .subscribe(function (isAuthenticated) {
             _this.isAuthenticated = isAuthenticated;
+            _this.isAdmin = _this.authenticationProvider.isAdmin;
             _this.changeDetectorRef.detectChanges();
         });
     };
@@ -591,7 +1011,7 @@ var MenuComponent = /** @class */ (function () {
     ], MenuComponent.prototype, "navChild", void 0);
     MenuComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'menu',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/menu/menu.html"*/'<ion-content>\n  <ion-list>\n    <ion-list-header>\n      CCPV\n    </ion-list-header>\n    <button menuClose ion-item (click)="open(\'top\')">\n      <ion-icon name="home" item-left></ion-icon>\n      トップ\n    </button>\n    <button menuClose ion-item (click)="open(\'list\')" *ngIf="isAuthenticated">\n      <ion-icon name="list" item-left></ion-icon>\n      リスト\n    </button>\n    <button menuClose ion-item *ngIf="!isAuthenticated" (click)="signIn()">\n      <ion-icon name="log-in" item-left></ion-icon>\n      ログイン\n    </button>\n    <button menuClose ion-item *ngIf="isAuthenticated" (click)="signOut()">\n      <ion-icon name="log-out" item-left></ion-icon>\n      ログアウト\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/menu/menu.html"*/
+            selector: 'menu',template:/*ion-inline-start:"/home/circleci/ccpv/src/components/menu/menu.html"*/'<ion-content>\n  <ion-list>\n    <ion-list-header>\n      CCPV\n    </ion-list-header>\n    <button menuClose ion-item (click)="open(\'top\')">\n      <ion-icon name="home" item-left></ion-icon>\n      トップ\n    </button>\n    <button menuClose ion-item (click)="open(\'list\')" *ngIf="isAuthenticated">\n      <ion-icon name="list" item-left></ion-icon>\n      リスト\n    </button>\n    <button menuClose ion-item *ngIf="!isAuthenticated" (click)="signIn()">\n      <ion-icon name="log-in" item-left></ion-icon>\n      ログイン\n    </button>\n    <button menuClose ion-item *ngIf="isAuthenticated" (click)="signOut()">\n      <ion-icon name="log-out" item-left></ion-icon>\n      ログアウト\n    </button>\n    <ion-item-divider *ngIf="isAuthenticated && isAdmin">\n      管理者\n    </ion-item-divider>\n    <button menuClose ion-item (click)="open(\'statistics\')" *ngIf="isAuthenticated && isAdmin">\n      <ion-icon name="pulse" item-left></ion-icon>\n      統計\n    </button>\n    <button menuClose ion-item (click)="open(\'messages\')" *ngIf="isAuthenticated && isAdmin">\n      <ion-icon name="clipboard" item-left></ion-icon>\n      メッセージ\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/circleci/ccpv/src/components/menu/menu.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__providers_authentication__["a" /* AuthenticationProvider */],
             __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */],
@@ -605,7 +1025,7 @@ var MenuComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 683:
+/***/ 685:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -617,171 +1037,30 @@ var TOAST_POSITION = 'bottom';
 
 /***/ }),
 
-/***/ 86:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(115);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__constants_storage__ = __webpack_require__(661);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__constants_url__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__constants_firebase__ = __webpack_require__(662);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return url; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return endpoints; });
+var url = (function () {
+    // Production
+    if (true) {
+        return 'https://ccpv.herokuapp.com';
     }
+    // Development
+    return 'http://localhost:8000';
+})();
+var endpoints = {
+    authentication: '/authentication',
+    list: '/list',
+    messages: '/messages',
+    message: '/message',
+    admin: '/admin'
 };
-
-
-
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_2_firebase___default.a.initializeApp(__WEBPACK_IMPORTED_MODULE_6__constants_firebase__);
-var AuthenticationProvider = /** @class */ (function () {
-    function AuthenticationProvider(http) {
-        this.http = http;
-        // Firebase
-        this.firebase = __WEBPACK_IMPORTED_MODULE_2_firebase___default.a;
-        this.provider = new __WEBPACK_IMPORTED_MODULE_2_firebase___default.a.auth.TwitterAuthProvider();
-        this.firebaseIdToken = null;
-        this.accessToken = null;
-        this.accessTokenSecret = null;
-        // Flag
-        this.isAuthenticated = false;
-        this.emitter = new __WEBPACK_IMPORTED_MODULE_3_rxjs__["BehaviorSubject"](this.isAuthenticated);
-        this.apiKey = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey);
-        this.userId = parseInt(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId));
-        this.userName = localStorage.getItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName);
-        this.setAuthenticateStatus(this.apiKey !== null);
-    }
-    AuthenticationProvider.prototype.authentication = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var response, _a, authenticated, error_1;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        if (this.isAuthenticated) {
-                            return [2 /*return*/, this.apiKey];
-                        }
-                        _b.label = 1;
-                    case 1:
-                        _b.trys.push([1, 5, , 6]);
-                        return [4 /*yield*/, this.firebase
-                                .auth()
-                                .signInWithPopup(this.provider)];
-                    case 2:
-                        response = _b.sent();
-                        _a = this;
-                        return [4 /*yield*/, response.user.getIdToken()];
-                    case 3:
-                        _a.firebaseIdToken = _b.sent();
-                        // any ではなく TwitterCredential を使うべきだが参照できないので any を使用する
-                        this.accessToken = response.credential.accessToken;
-                        this.accessTokenSecret = response.credential.secret;
-                        return [4 /*yield*/, this.http.post("" + __WEBPACK_IMPORTED_MODULE_5__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_5__constants_url__["a" /* endpoints */].authentication, {
-                                firebase_id_token: this.firebaseIdToken,
-                                access_token: this.accessToken,
-                                access_token_secret: this.accessTokenSecret
-                            }).toPromise()];
-                    case 4:
-                        authenticated = _b.sent();
-                        this.userId = authenticated.id;
-                        this.userName = authenticated.name;
-                        this.apiKey = authenticated.api_key;
-                        // 取得したキーを保存する
-                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId, this.userId.toString());
-                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName, this.userName);
-                        localStorage.setItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey, this.apiKey);
-                        // 認証済みにする
-                        this.setAuthenticateStatus(true);
-                        return [2 /*return*/, this.apiKey];
-                    case 5:
-                        error_1 = _b.sent();
-                        window.Raven.captureException(error_1);
-                        throw error_1;
-                    case 6: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    /** ユーザデータを削除する */
-    AuthenticationProvider.prototype.reset = function () {
-        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userId);
-        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].userName);
-        localStorage.removeItem(__WEBPACK_IMPORTED_MODULE_4__constants_storage__["a" /* local */].apiKey);
-        this.setAuthenticateStatus(false);
-    };
-    AuthenticationProvider.prototype.getObserver = function () {
-        return this.emitter.asObservable();
-    };
-    AuthenticationProvider.prototype.requestHeaders = function () {
-        return {
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Api-Key': this.apiKey
-            }
-        };
-    };
-    AuthenticationProvider.prototype.setAuthenticateStatus = function (status) {
-        this.isAuthenticated = status;
-        this.emitter.next(this.isAuthenticated);
-    };
-    AuthenticationProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], AuthenticationProvider);
-    return AuthenticationProvider;
-}());
-
-//# sourceMappingURL=authentication.js.map
+//# sourceMappingURL=url.js.map
 
 /***/ })
 
-},[342]);
+},[344]);
 //# sourceMappingURL=main.js.map
