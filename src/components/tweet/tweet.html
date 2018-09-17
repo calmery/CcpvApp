@@ -1,0 +1,39 @@
+<ion-card (click)="changeSafeStatus()">
+
+  <ion-item *ngIf="!isSafe">
+    <ion-avatar item-start>
+      <img src="{{user.profile_image_url}}">
+    </ion-avatar>
+    <h2>{{user.name}}</h2>
+    <p>@{{user.screen_name}}（{{user.id}}）</p>
+  </ion-item>
+
+  <!-- img src="img/advance-card-bttf.png" -->
+
+  <ion-card-content *ngIf="isSafe" class="ellipsis">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    {{tweet.text}}
+  </ion-card-content>
+  <ion-card-content *ngIf="!isSafe">
+    {{tweet.text}}
+  </ion-card-content>
+
+  <ion-row *ngIf="!isSafe">
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="refresh"></ion-icon>
+        {{tweet.retweet_count}}
+      </button>
+      <button ion-button icon-start clear small>
+        <ion-icon name="heart"></ion-icon>
+        {{tweet.favorite_count}}
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button clear small float-right>
+        {{displayDate(tweet.created_at)}}
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-card>

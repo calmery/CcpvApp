@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, Loading, LoadingController } from 'ionic-angular';
 import { ListProvider } from '../../providers/list';
 
+interface TemporaryState {
+  [key: string]: boolean;
+}
+
 @IonicPage({
   name: 'edit',
   segment: 'edit/:id'
@@ -13,10 +17,14 @@ import { ListProvider } from '../../providers/list';
 export class EditPage {
 
   public name: string;
+
   public listsTweets: any[] = [];
+  public temporaryState: TemporaryState = {};
+
+  /** this.temporaryState を参照する必要があるため this をバインドした状態のメソッドを子要素に渡す */
+  public changeSafeState: Function = this._changeSafeState.bind(this);
 
   private id: number;
-  private list: any;
 
   // フラグなどの状態を変更した後に保存したかどうかを保持する
   private isSaved: boolean = true;
@@ -49,6 +57,16 @@ export class EditPage {
     this.getList();
   }
 
+  /** 子要素にコールバック関数として渡す */
+  public _changeSafeState(id: number, isSafe: boolean) {
+    /*
+     * 子要素にメソッドを渡さずに Edit ページ側でクリックイベントを取得してフラグを更新する
+     * 子要素には変更したフラグを渡すようにしていたがうまくフラグが渡せなかったためメソッド自体を渡すようにした
+     * changeDetectorRef.detectChanges を呼び出してもうまく反映されなかった
+     */
+    this.temporaryState[id.toString()] = isSafe;
+  }
+
   /** リストを取得する */
   public async getList() {
     try {
@@ -56,9 +74,11 @@ export class EditPage {
       this.loading.present();
 
       const list = await this.listProvider.get(this.id);
-
-      this.list = list;
       this.listsTweets = (list as any).lists_tweets;
+
+      this.listsTweets.forEach(({ is_safe, tweet }) => {
+        this.temporaryState[tweet.id.toString()] = is_safe;
+      });
     } catch(error) {
       await this.alertCtrl.create({
         title: 'リストの取得に失敗しました',
