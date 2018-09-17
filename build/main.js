@@ -210,9 +210,6 @@ var ListProvider = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        console.log(__assign({}, this.authenticationProvider.requestHeaders(), { params: {
-                                tweets: data
-                            } }));
                         return [4 /*yield*/, this.http.post("" + __WEBPACK_IMPORTED_MODULE_2__constants_url__["b" /* url */] + __WEBPACK_IMPORTED_MODULE_2__constants_url__["a" /* endpoints */].list + "/" + id, { tweets: data }, __assign({}, this.authenticationProvider.requestHeaders())).toPromise()];
                     case 1:
                         _a.sent();
