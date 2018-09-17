@@ -10,6 +10,8 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content no-padding>
+  <ion-grid fixed no-padding>
+    <tweet [tweet]="listTweet.tweet" [isSafe]="temporaryState[listTweet.tweet.id]" *ngFor="let listTweet of listsTweets" [callback]="changeSafeState"></tweet>
+  </ion-grid>
 </ion-content>

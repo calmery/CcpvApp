@@ -1,0 +1,14 @@
+tweet {
+
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    ion-icon {
+      margin-right: 8px;
+      color: #7ED321;
+    }
+  }
+
+}

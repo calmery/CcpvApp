@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 
 import { AuthenticationProvider } from '../../providers/authentication';
