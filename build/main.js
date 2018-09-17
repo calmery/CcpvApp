@@ -156,6 +156,7 @@ var ListProvider = /** @class */ (function () {
                         return [2 /*return*/, lists];
                     case 2:
                         error_1 = _a.sent();
+                        window.Raven.captureException(error_1);
                         throw error_1;
                     case 3: return [2 /*return*/];
                 }
@@ -176,6 +177,7 @@ var ListProvider = /** @class */ (function () {
                         return [2 /*return*/, response];
                     case 2:
                         error_2 = _a.sent();
+                        window.Raven.captureException(error_2);
                         throw error_2;
                     case 3: return [2 /*return*/];
                 }
@@ -196,6 +198,7 @@ var ListProvider = /** @class */ (function () {
                         return [2 /*return*/, list];
                     case 2:
                         error_3 = _a.sent();
+                        window.Raven.captureException(error_3);
                         throw error_3;
                     case 3: return [2 /*return*/];
                 }
@@ -216,6 +219,7 @@ var ListProvider = /** @class */ (function () {
                         return [3 /*break*/, 3];
                     case 2:
                         error_4 = _a.sent();
+                        window.Raven.captureException(error_4);
                         throw error_4;
                     case 3: return [2 /*return*/];
                 }
@@ -739,6 +743,7 @@ var AuthenticationProvider = /** @class */ (function () {
                         return [2 /*return*/, this.apiKey];
                     case 5:
                         error_1 = _b.sent();
+                        window.Raven.captureException(error_1);
                         throw error_1;
                     case 6: return [2 /*return*/];
                 }
