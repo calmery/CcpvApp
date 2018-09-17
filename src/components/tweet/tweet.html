@@ -8,7 +8,9 @@
     <p>@{{user.screen_name}}（{{user.id}}）</p>
   </ion-item>
 
-  <!-- img src="img/advance-card-bttf.png" -->
+  <ion-card-content *ngIf="media.length && !isSafe">
+    <media [media]="media"></media>
+  </ion-card-content>
 
   <ion-card-content *ngIf="isSafe" class="ellipsis">
     <ion-icon name="checkmark-circle"></ion-icon>

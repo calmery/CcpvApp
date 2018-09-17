@@ -1,0 +1,16 @@
+<ion-grid no-padding *ngIf="photos.length < 3">
+  <ion-row>
+    <ion-col [style.background]="'url(' + photo + ')'" [style.backgroundSize]="'cover'" *ngFor="let photo of photos"></ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid no-padding *ngIf="photos.length === 4">
+  <ion-row>
+    <ion-col [style.background]="'url(' + photos[0] + ')'" [style.backgroundSize]="'cover'"></ion-col>
+    <ion-col [style.background]="'url(' + photos[1] + ')'" [style.backgroundSize]="'cover'"></ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col [style.background]="'url(' + photos[2] + ')'" [style.backgroundSize]="'cover'"></ion-col>
+    <ion-col [style.background]="'url(' + photos[3] + ')'" [style.backgroundSize]="'cover'"></ion-col>
+  </ion-row>
+</ion-grid>
