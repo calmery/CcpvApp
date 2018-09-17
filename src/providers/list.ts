@@ -27,6 +27,21 @@ export class ListProvider {
     }
   }
 
+  /** 検索ワードと紐付けた新規リストを作成する */
+  public async new(name: string, query: string) {
+    try {
+      const response = await this.http.post(
+        `${BaseUrl}${Endpoints.list}`,
+        { name, query },
+        { ...this.authenticationProvider.requestHeaders() }
+      ).toPromise();
+
+      return response;
+    } catch(error) {
+      throw error;
+    }
+  }
+
   /** 受け取った ID に対応したリストが自身の所有するリストだった場合にその内容を取得する */
   public async get(id: number) {
     try {

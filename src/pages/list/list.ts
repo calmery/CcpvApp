@@ -96,4 +96,74 @@ export class ListPage {
     refresher.complete();
   }
 
+  /** 検索ワードを入力するプロンプトを表示する */
+  public openSearch() {
+    const prompt = this.alertCtrl.create({
+      title: '検索',
+      inputs: [{
+        name: 'name',
+        placeholder: '名前'
+      }, {
+        name: 'query',
+        placeholder: 'キーワード'
+      }],
+      buttons: [{
+        text: 'キャンセル',
+        role: 'cancel'
+      }, {
+        text: '検索',
+        handler: ({ name, query }) => {
+          this.createList(name, query);
+        }
+      }]
+    });
+
+    prompt.present();
+  }
+
+  /** 新規リストを作成する */
+  private async createList(name, query) {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+
+    if (name === '' || query === '') {
+      await this.alertCtrl.create({
+        title: '検索できませんでした',
+        message: '名前，またキーワードは少なくとも 1 文字以上である必要があります',
+        buttons: ['閉じる']
+      }).present();
+
+      this.loading.dismiss();
+
+      return;
+    }
+
+    let isSucceeded = false;
+
+    try {
+      await this.listProvider.new(name, query);
+      isSucceeded = true;
+    } catch(error) {
+      await this.alertCtrl.create({
+        title: '検索に失敗しました',
+        buttons: [{
+          text: 'キャンセル',
+          role: 'cancel'
+        }, {
+          text: '再試行',
+          handler: () => {
+            this.createList(name, query);
+          }
+        }]
+      }).present();
+    }
+
+    this.loading.dismiss();
+
+    if (isSucceeded) {
+      // リストを再取得する
+      this.getMyLists();
+    }
+  }
+
 }
