@@ -15,13 +15,15 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-grid fixed no-padding>
-    <ion-row>
-      <ion-col>Safe</ion-col>
-      <ion-col>{{safeCount}}</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>UnSafe</ion-col>
-      <ion-col>{{unsafeCount}}</ion-col>
-    </ion-row>
+    <table class="table">
+      <tr>
+        <td>Safe</td>
+        <td>{{safeCount}}</td>
+      </tr>
+      <tr>
+        <td>UnSafe</td>
+        <td>{{unsafeCount}}</td>
+      </tr>
+    </table>
   </ion-grid>
 </ion-content>
