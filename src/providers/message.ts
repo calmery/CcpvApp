@@ -19,8 +19,7 @@ export class MessageProvider {
       const url = `${BaseUrl}${Endpoints.messages}` + (next === undefined ? '' : `?start=${next}`);
 
       const response = await this.http.get<Messages>(
-        url,
-        { ...this.authenticationProvider.requestHeaders() }
+        url
       ).toPromise();
 
       return response;
