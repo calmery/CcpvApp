@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="save()">保存</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-grid fixed no-padding>
+    <tweet [tweet]="listTweet.tweet" [isSafe]="temporaryState[listTweet.tweet.id]" *ngFor="let listTweet of listsTweets" [callback]="changeSafeState"></tweet>
+  </ion-grid>
+</ion-content>
