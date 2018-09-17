@@ -130,6 +130,11 @@ export class EditPage {
       );
 
       this.isSaved = true;
+
+      await this.alertCtrl.create({
+        title: '保存しました',
+        buttons: ['閉じる']
+      }).present();
     } catch(error) {
       this.alertCtrl.create({
         title: '保存に失敗しました',
